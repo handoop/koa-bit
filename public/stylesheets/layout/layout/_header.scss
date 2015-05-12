@@ -1,0 +1,13 @@
+header{
+  height: $header-height;
+  background: $header-bg-color;
+  min-width: $container-width;
+
+  .brand{
+    img{
+      height: $header-height;
+    }
+  }
+
+  @include nav-horizontal($header-height, $header-link-color, $header-link-hover-color);
+}

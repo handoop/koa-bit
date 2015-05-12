@@ -1,0 +1,9 @@
+body,html{
+    background: $bg-color;
+}
+
+.container{
+  width: $container-width;
+  @include center-block;
+}
+

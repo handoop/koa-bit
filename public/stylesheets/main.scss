@@ -1,0 +1,19 @@
+//配置变量，混合宏及继承样式
+@import "base/variables";
+@import "utils/mixins";
+@import "utils/helpers";
+@import "utils/functions";
+
+//初始化
+@import "base/reset";
+@import "base/typography";
+
+//layout布局
+@import "layout/layout";
+
+//components组件
+@import "components/components";
+
+//pages
+@import "pages/pages";
+

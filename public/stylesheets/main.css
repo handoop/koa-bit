@@ -1,0 +1,357 @@
+@charset "UTF-8";
+.clearfix:after {
+  content: "";
+  display: table;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  clear: both; }
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.pull-right {
+  float: right !important; }
+
+.pull-left {
+  float: left !important; }
+
+.hidden {
+  display: none !important; }
+
+.show {
+  display: block !important; }
+
+.invisible {
+  visibility: hidden; }
+
+.text-left {
+  text-align: left; }
+
+.text-center {
+  text-align: center; }
+
+.text-right {
+  text-align: right; }
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.text-left {
+  text-align: left; }
+
+.text-right {
+  text-align: right; }
+
+.text-center {
+  text-align: center; }
+
+.text-justify {
+  text-align: justify; }
+
+.text-nowrap {
+  white-space: nowrap; }
+
+.text-lowercase {
+  text-transform: lowercase; }
+
+.text-uppercase {
+  text-transform: uppercase; }
+
+.text-capitalize {
+  text-transform: capitalize; }
+
+.text-muted {
+  color: #a9a9a9; }
+
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, fieldset, lengend, button, input, textarea, th, td {
+  /* table elements */
+  margin: 0;
+  padding: 0; }
+
+body, button, input, select, textarea {
+  /*font: 12px/1 Tahoma, Helvetica, Arial, sans-serif;*/
+  font: 14px, "微软雅黑" Tahoma, Helvetica, Arial, "宋体", sans-serif;
+  color: #666;
+  /* 用 ascii 字符表示，使得在任何编码下都无问题 */ }
+
+h1 {
+  font-size: 20px;
+  /* 18px / 12px = 1.5 */ }
+
+h2 {
+  font-size: 18px; }
+
+h3 {
+  font-size: 16px; }
+
+h4, h5, h6 {
+  font-size: 100%; }
+
+address, cite, dfn, em, var {
+  font-style: normal; }
+
+/* 将斜体扶正 */
+code, kbd, pre, samp, tt {
+  font-family: "Courier New", Courier, monospace; }
+
+/* 统一等宽字体 */
+small {
+  font-size: 12px; }
+
+/* 小于 12px 的中文很难阅读，让 small 正常化 */
+/* 重置列表元素 */
+ul, ol {
+  list-style: none; }
+
+/* 重置文本格式元素 */
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+abbr[title], acronym[title] {
+  /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
+  border-bottom: 1px dotted;
+  cursor: help; }
+
+q:before, q:after {
+  content: ''; }
+
+/* 重置表单元素 */
+legend {
+  color: #000; }
+
+/* for ie6 */
+fieldset, img {
+  border: none; }
+
+/* img 搭车：让链接里的 img 无边框 */
+/* 注：optgroup 无法扶正 */
+button, input, select, textarea {
+  font-size: 100%;
+  /* 使得表单元素在 ie 下能继承字体大小 */ }
+
+/* 重置表格元素 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* 重置 hr */
+hr {
+  border: none;
+  height: 1px; }
+
+body, html {
+  background: #F2F2F2; }
+
+.container {
+  width: 1020px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+header {
+  height: 60px;
+  background: #101C2F;
+  min-width: 1020px; }
+  header .brand img {
+    height: 60px; }
+  header .nav-horizontal:after {
+    content: "";
+    display: table;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    clear: both; }
+  header .nav-horizontal li {
+    float: left; }
+  header .nav-horizontal a {
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    color: #DFDFDF;
+    padding: 0 30px;
+    text-decoration: none; }
+    header .nav-horizontal a:not(.active):hover {
+      color: #FFF; }
+    header .nav-horizontal a.active {
+      color: #c3325f; }
+
+.form {
+  margin: 20px 0; }
+
+.input {
+  background: #CCC;
+  border: 1px solid transparent;
+  font-size: 18px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 12px;
+  width: 60%; }
+  .input::-webkit-input-placeholder {
+    color: #666; }
+  .input:hover {
+    background: #DDD; }
+  .input:focus {
+    background: #FFF; }
+
+.input-small {
+  background: #CCC;
+  border: 1px solid transparent;
+  font-size: 14px;
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+  width: 50%; }
+  .input-small::-webkit-input-placeholder {
+    color: #666; }
+  .input-small:hover {
+    background: #DDD; }
+  .input-small:focus {
+    background: #FFF; }
+
+.input-large {
+  background: #CCC;
+  border: 1px solid transparent;
+  font-size: 16px;
+  padding: 0 16px;
+  height: 50px;
+  line-height: 50px;
+  width: 70%; }
+  .input-large::-webkit-input-placeholder {
+    color: #666; }
+  .input-large:hover {
+    background: #DDD; }
+  .input-large:focus {
+    background: #FFF; }
+
+.footer {
+  color: #666;
+  background: #efefef;
+  text-align: center;
+  width: 100%;
+  border-top: 1px solid #ccc; }
+  .footer .container {
+    padding: 15px 0; }
+
+.absolute-footer {
+  position: absolute;
+  bottom: 0; }
+
+.btn {
+  margin: 0 5px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0 30px;
+  height: 40px;
+  line-height: 38px; }
+
+.btn-small {
+  margin: 0 5px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0 20px;
+  height: 30px;
+  line-height: 28px; }
+
+.btn-large {
+  margin: 0 5px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 40px;
+  height: 50px;
+  line-height: 48px; }
+
+.btn-primary {
+  background: #794A53;
+  color: #fff; }
+  .btn-primary:hover {
+    background: #694048; }
+
+.jumbotron {
+  min-width: 1020px;
+  padding: 50px 0;
+  border-bottom: #efefef 1px solid;
+  margin-bottom: 30px; }
+  .jumbotron h1 {
+    text-align: center;
+    font-size: 28px;
+    margin: 15px 0; }
+
+.paging li {
+  float: left;
+  margin: 5px 10px;
+  border: 1px solid #DFDFDF; }
+  .paging li a {
+    display: block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: 30px; }
+
+.bit-jumbotron {
+  color: #a9a9a9;
+  height: 90%;
+  text-align: center;
+  margin-top: 10%; }
+  .bit-jumbotron h1 {
+    color: #000; }
+
+.search-header {
+  text-align: left;
+  height: 50px; }
+  .search-header > div {
+    background: #efefef;
+    border-bottom: 1px solid #CCC;
+    padding: 5px 0; }
+
+.search-header-fixed {
+  width: 100%;
+  min-width: 1020px;
+  box-shadow: 0  3px 5px #ccc;
+  position: fixed;
+  top: 0; }
+
+.search-list {
+  list-style: none;
+  margin-top: 20px; }
+  .search-list .tips {
+    color: #a9a9a9;
+    font-size: 12px;
+    padding: 5px 10px; }
+  .search-list li {
+    padding: 18px 10px;
+    border-top: 1px dotted #dfdfdf;
+    transition: all 0.3s; }
+    .search-list li:hover {
+      background: #FBF6DD; }
+  .search-list .title {
+    padding: 10px 0; }
+    .search-list .title a {
+      color: #000; }
+  .search-list .author {
+    padding: 10px 0;
+    font-size: 12px; }
+  .search-list .summary {
+    padding: 10px 0;
+    color: #333; }
+
+.tag-list {
+  padding: 0 10px;
+  border-left: 1px solid #efefef; }
+
+.highlight {
+  color: #b77c83; }
+
+/*# sourceMappingURL=main.css.map */

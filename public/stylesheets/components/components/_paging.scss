@@ -1,0 +1,16 @@
+$pagingSquare: 30px;
+
+.paging{
+    li{
+        float: left;
+        a{
+            display: block;
+            text-align: center;
+            width: $pagingSquare;
+            height: $pagingSquare;
+            line-height: $pagingSquare;
+        }
+        margin: 5px 10px;
+        border: 1px solid #DFDFDF;
+    }
+}

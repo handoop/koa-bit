@@ -1,0 +1,22 @@
+@mixin nav-horizontal($height, $link-color, $hover-color){
+  .nav-horizontal{
+    @include clearfix;
+    li{
+      float: left;
+    }
+    a{
+      display: block;
+      height: $height;
+      line-height: $height;
+      color: $link-color;
+      padding: 0 30px;
+      text-decoration: none;
+      &:not(.active):hover{
+        color: $hover-color;
+      }
+      &.active{
+        color: #c3325f;
+      }
+    }
+  }
+}

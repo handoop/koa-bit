@@ -1,0 +1,11 @@
+<ul class="paging clearfix">
+    <li>
+        <a href="/search?querystring=<%= querystring %>"><<</a>
+    </li>
+    <% for(var i = data.page.beginIndex; i <= data.page.endIndex; i++){ %>
+    <li <% if(data.page.currentPage == i){ %> class="hightliaght" <% } %>>
+        <a href="/search?querystring=<%= querystring %>&pageNum=<%= i %>"><%= i %></a>
+    </li>
+    <% } %>
+    <li><a href="/search?querystring=<%= querystring %>&pageNum=<%= data.page.pageCount %>">>></a></li>
+</ul>

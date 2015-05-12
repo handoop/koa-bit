@@ -1,0 +1,13 @@
+
+.jumbotron{
+  min-width: $container-width;
+  padding: $jumbotron-padding 0;
+  border-bottom: #efefef 1px solid;
+  margin-bottom: 30px;
+  h1{
+    text-align: center;
+    font-size: (2 * $font-size);
+    margin: 15px 0;
+  }
+
+}

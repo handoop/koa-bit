@@ -1,0 +1,16 @@
+.footer{
+    color: $footer-link-color;
+    background: #efefef;
+    text-align: center;
+    width: 100%;
+    border-top: 1px solid #ccc;
+
+    .container{
+        padding: 15px 0;
+    }
+}
+
+.absolute-footer{
+    position: absolute;
+    bottom: 0;
+}
