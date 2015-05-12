@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/proxy/thrift/node_modules/nodeunit/test/fixtures/coffee/mock_coffee_module.js" />
+        <item url="file://$PROJECT_DIR$/public/javascripts/index/index.js" />
+        <item url="file://$PROJECT_DIR$/public/javascripts/search/search.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/thrift/node_modules/nodeunit/test/fixtures/coffee/mock_coffee_module.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/proxy/thrift/node_modules/nodeunit/test/fixtures/coffee/mock_coffee_module.js" />
+      <root url="file://$PROJECT_DIR$/public/javascripts/index/index.js" />
+      <root url="file://$PROJECT_DIR$/public/javascripts/search/search.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/thrift/node_modules/nodeunit/test/fixtures/coffee/mock_coffee_module.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
