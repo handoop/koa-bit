@@ -10,7 +10,7 @@
   font-size: 14px;
   padding: 0 $btn-padding;
   height: $input-height;
-  line-height: $input-height - 2;
+  line-height: $input-height + 1;
 }
 .btn-small{
   @include btn;

@@ -1,0 +1,36 @@
+@mixin input{
+    background: #DDD;
+    border: 1px solid transparent;
+    transition: background 0.8s;
+    &::-webkit-input-placeholder{
+        color: $color;
+    }
+    &:focus{
+        background: #FFF;
+    }
+}
+.input{
+    @include input;
+    font-size: 18px;
+    height: $input-height;
+    line-height: $input-height;
+    padding: 0 12px;
+    width: 60%;
+
+}
+.input-small{
+    @include input;
+    font-size: 14px;
+    padding: 0 10px;
+    height: $input-height - 10;
+    line-height: $input-height - 10;
+    width: 50%;
+}
+.input-large{
+    @include input;
+    font-size: 16px;
+    padding: 0 16px;
+    height: $input-height + 10;
+    line-height: $input-height + 10;
+    width: 70%;
+}

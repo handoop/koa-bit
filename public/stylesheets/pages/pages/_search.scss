@@ -1,11 +1,13 @@
 
 .search-header {
     text-align: left;
+    width: 100%;
+    min-width: $container-width;
     height: $input-height + 10;
 
     &>div{
         background: #efefef;
-        border-bottom: 1px solid #CCC;
+        border-bottom: 1px solid #ccc;
         padding: 5px 0;
     }
 }
@@ -13,7 +15,8 @@
 .search-header-fixed{
     width: 100%;
     min-width: $container-width;
-    box-shadow: 0  3px 5px #ccc;
+    border-bottom: 1px solid #999;
+    box-shadow: 0  3px 5px #999;
     position: fixed;
     top: 0;
 }
@@ -61,5 +64,5 @@
 }
 
 .highlight {
-    color: $text-hightlight;
+    color: $text-highlight;
 }

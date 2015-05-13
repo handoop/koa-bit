@@ -1,9 +1,9 @@
 .footer{
     color: $footer-link-color;
-    background: #efefef;
+    background: $footer-bg-color;
     text-align: center;
     width: 100%;
-    border-top: 1px solid #ccc;
+    border-top: 3px solid $primary-color;
 
     .container{
         padding: 15px 0;

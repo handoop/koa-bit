@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='stylesheets/main.css'/>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <% include public/head.ejs%>
 </head>
 <body>
 <% include public/header.ejs %>
@@ -11,14 +9,14 @@
     <div>
         <div class="container">
         <form action="/search" method="get">
-            <input name="querystring" class="input" value="<%= querystring %>"  autocomplete="off" placeholder="查询您需要的科技文献" type="search"/>
+            <input name="qs" class="input" value="<%= qs %>" border="0" autocomplete="off" placeholder="查询您需要的科技文献" type="search"/>
             <button type="submit" class="btn btn-primary">搜索</button>
         </form>
     </div></div>
 </div>
 <div class="container">
     <ul class="search-list">
-        <div class="tips">比特能检索为您找到相关结果约<%= data.page.recordCount %>个</div>
+        <div class="tips">比特能检索为您找到相关结果约 <b><%= recordCount %></b> 个</div>
         <% data.page.recordList.forEach(function(record, index){ %>
         <li>
             <h1 class="title"><a href=""><%- record.title %></a></h1>
@@ -30,6 +28,5 @@
     <% include public/paging.ejs %>
 </div>
 <% include public/footer.ejs %>
-<script src="javascripts/search/search.js"></script>
 </body>
 </html>

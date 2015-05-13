@@ -1,16 +1,28 @@
 $pagingSquare: 30px;
 
 .paging{
+    margin: 10px 0;
+
     li{
         float: left;
+        margin: 5px 10px;
+        border: 1px solid #DFDFDF;
+
         a{
             display: block;
+            color: #666;
             text-align: center;
             width: $pagingSquare;
             height: $pagingSquare;
             line-height: $pagingSquare;
         }
-        margin: 5px 10px;
-        border: 1px solid #DFDFDF;
+
+        &.highlight{
+            background: $primary-color;
+
+            a{
+                color: #fff;
+            }
+        }
     }
 }

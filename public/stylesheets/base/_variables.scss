@@ -3,7 +3,16 @@ $font-size: 14px;
 $font-family: "微软雅黑";
 $container-width: 1020px;
 $color: #666;
-$bg-color: #F2F2F2;
+$bg-color: #f6f6f6;
+
+//颜色
+$primary-color: #7D454C;
+
+//text文字变量
+$text-primary-color: $primary-color;
+$text-muted-color: #a9a9a9;
+$text-highlight: #b77c83; //#267BCC;
+
 
 //Header变量
 $header-height: 60px;
@@ -13,21 +22,16 @@ $header-link-hover-color: #FFF;
 
 //Footer变量
 $footer-height: 30px;
-$footer-bg-color: #101C2F;
-$footer-link-color: #666;
+$footer-bg-color: #222;
+$footer-link-color: #f5f5f5;
 $footer-link-hover-color: #FFF;
 
 //jumbotron巨幕
 $jumbotron-padding: 50px;
 
-//text文字变量
-$text-primary-color: #7D454C;
-$text-muted-color: #a9a9a9;
-$text-hightlight: #b77c83; //#267BCC;
-
 // form
 $input-height: 40px;
 
 // button
-$btn-primary-color: #794A53;
+$btn-primary-color: $primary-color;
 $btn-padding: 30px;
