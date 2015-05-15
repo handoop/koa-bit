@@ -22,7 +22,14 @@
     border-bottom: 1px solid #999;
     box-shadow: 0  3px 5px #999;
     position: fixed;
+    z-index: 1000;
     top: 0;
+}
+
+// 搜索页的知识图谱
+.search-graph{
+    min-height: 400px;
+    overflow: auto;
 }
 
 // 搜索页的搜索列表

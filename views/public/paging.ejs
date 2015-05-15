@@ -2,10 +2,10 @@
     <li>
         <a href="/search?qs=<%= qs %>"><<</a>
     </li>
-    <% for(var i = data.page.beginIndex; i <= data.page.endIndex; i++){ %>
-    <li <% if(data.page.currentPage == i){ %> class="highlight" <% } %>>
+    <% for(var i = recordData.beginIndex; i <= recordData.endIndex; i++){ %>
+    <li <% if(recordData.currentPage == i){ %> class="highlight" <% } %>>
         <a href="/search?qs=<%= qs %>&pn=<%= i %>"><%= i %></a>
     </li>
     <% } %>
-    <li><a href="/search?qs=<%= qs %>&pn=<%= data.page.pageCount %>">>></a></li>
+    <li><a href="/search?qs=<%= qs %>&pn=<%= recordData.pageCount %>">>></a></li>
 </ul>

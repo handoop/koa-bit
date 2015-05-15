@@ -1,7 +1,8 @@
 require.config({
     paths: {
-        jquery: 'lib/jquery.min'
+        jquery: 'lib/jquery.min',
+        d3: 'lib/d3'
     }
 });
 
-define(['jquery', 'search/search']);
+define(['search/search']);
