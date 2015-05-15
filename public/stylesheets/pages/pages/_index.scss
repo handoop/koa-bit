@@ -1,13 +1,12 @@
-$jumbotron-heading-color: #000;
-$jumbotron-color: $text-muted-color;
+
 
 .bit-jumbotron {
-    color: $jumbotron-color;
+    color: $heading-second-color;
     height: 90%;
     text-align: center;
     margin-top: 10%;
 
     h1 {
-        color: $jumbotron-heading-color;
+        color: $heading-color;
     }
 }

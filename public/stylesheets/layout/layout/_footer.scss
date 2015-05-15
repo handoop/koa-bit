@@ -10,7 +10,8 @@
     }
 }
 
-.absolute-footer{
-    position: absolute;
+.fixed-footer{
+    @extend .footer;
+    position: fixed;
     bottom: 0;
 }

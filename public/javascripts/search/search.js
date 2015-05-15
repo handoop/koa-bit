@@ -1,6 +1,5 @@
 
 require(['jquery'], function($) {
-
     /*
     #
     # fixed 悬浮搜索框
@@ -11,9 +10,9 @@ require(['jquery'], function($) {
 	# 搜索框：$searchHeader
 	# 当前header的offset: searchHeaderTop
 	*/
-    var $searchHeader, searchHeaderTop;
-    $searchHeader = $(".search-header");
-    searchHeaderTop = $searchHeader.offset().top;
+    var $searchHeader = $(".search-header");
+    if($searchHeader.length == 0) return;
+    var searchHeaderTop = $searchHeader.offset().top;
 		
 	//# 检测滚动
     $(window).scroll(function() {

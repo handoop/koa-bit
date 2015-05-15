@@ -3,7 +3,7 @@ $font-size: 14px;
 $font-family: "微软雅黑";
 $container-width: 1020px;
 $color: #666;
-$bg-color: #f6f6f6;
+$bg-color: #EDEBED;
 
 //颜色
 $primary-color: #7D454C;
@@ -11,7 +11,7 @@ $primary-color: #7D454C;
 //text文字变量
 $text-primary-color: $primary-color;
 $text-muted-color: #a9a9a9;
-$text-highlight: #b77c83; //#267BCC;
+$text-highlight: #E8433D; //#267BCC;
 
 
 //Header变量
@@ -31,6 +31,7 @@ $jumbotron-padding: 50px;
 
 // form
 $input-height: 40px;
+$input-bg: #f5f5f5;
 
 // button
 $btn-primary-color: $primary-color;

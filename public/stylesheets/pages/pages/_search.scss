@@ -1,4 +1,4 @@
-
+// 搜索页的搜索条
 .search-header {
     text-align: left;
     width: 100%;
@@ -6,9 +6,13 @@
     height: $input-height + 10;
 
     &>div{
-        background: #efefef;
+        background: $search-header-bg;
         border-bottom: 1px solid #ccc;
         padding: 5px 0;
+    }
+
+    .brand{
+        display: none;
     }
 }
 
@@ -21,24 +25,20 @@
     top: 0;
 }
 
+// 搜索页的搜索列表
 .search-list {
     list-style: none;
-    margin-top: 20px;
 
     .tips{
+        margin: 10px 0;
         color: $text-muted-color;
         font-size: 12px;
-        padding: 5px 10px;
     }
 
-    li {
-        padding: 18px 10px;
+    &>li {
+        padding: 18px 0;
         border-top: 1px dotted #dfdfdf;
         transition: all 0.3s;
-
-        &:hover {
-            background: #FBF6DD;
-        }
     }
 
     .title {

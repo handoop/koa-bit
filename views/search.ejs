@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <% include public/head.ejs%>
+	<% include public/head.ejs %>
 </head>
 <body>
 <% include public/header.ejs %>
 <div class="search-header">
-    <div>
-        <div class="container">
-        <form action="/search" method="get">
-            <input name="qs" class="input" value="<%= qs %>" border="0" autocomplete="off" placeholder="查询您需要的科技文献" type="search"/>
-            <button type="submit" class="btn btn-primary">搜索</button>
-        </form>
-    </div></div>
+	<div>
+		<div class="container">
+			<form action="/search" method="get">
+				<input name="qs" class="input" value="<%= qs %>" border="0" autocomplete="off" placeholder="查询您需要的科技文献"
+				       type="search"/>
+				<button type="submit" class="btn btn-primary">搜索</button>
+			</form>
+		</div>
+	</div>
 </div>
 <div class="container">
-    <ul class="search-list">
-        <div class="tips">比特能检索为您找到相关结果约 <b><%= recordCount %></b> 个</div>
-        <% data.page.recordList.forEach(function(record, index){ %>
-        <li>
-            <h1 class="title"><a href=""><%- record.title %></a></h1>
-            <div class="author">作者：<%= record.authors %></div>
-            <p class="summary"><%- record.summary%></p>
-        </li>
-        <% }) %>
-    </ul>
-    <% include public/paging.ejs %>
+	<div class="panel">
+		<h2 class="panel-title">网页搜索</h2>
+		<div class="panel-content">
+			<% if(recordCount != 0){ %>
+			<% include search/search-list.ejs %>
+			<% }else{ %>
+			很抱歉，没有找到与“<%= qs %>”相关的网页。请确认输入是否正确。
+			<% } %>
+		</div>
+	</div>
 </div>
 <% include public/footer.ejs %>
 </body>

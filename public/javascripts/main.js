@@ -4,4 +4,4 @@ require.config({
     }
 });
 
-define(['jquery', 'javascripts/search/search.js']);
+define(['jquery', 'search/search']);
