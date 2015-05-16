@@ -4,15 +4,29 @@
     width: 100%;
     min-width: $container-width;
     height: $input-height + 10;
+    margin-bottom: 20px;
+
+    label{
+        display: inline-block;
+        padding: 10px;
+        margin-right: 10px;
+        cursor: pointer;
+        color: #AAA;
+
+        &.active{
+            color: #666;
+            border-bottom: 2px solid $primary-color;
+        }
+    }
+
+    input[type=radio]{
+        display: none;
+    }
 
     &>div{
         background: $search-header-bg;
         border-bottom: 1px solid #ccc;
         padding: 5px 0;
-    }
-
-    .brand{
-        display: none;
     }
 }
 

@@ -1,5 +1,13 @@
 require(['jquery', 'search/graph'], function ($, graph) {
     /*
+     * 搜索条的Label样式
+     */
+    $(".search-header label").click(function(){
+        $(this).addClass("active").siblings().removeClass("active");
+        location.search = "?" + $(this).parents("form").serialize();
+    });
+
+    /*
      * fixed 悬浮搜索框
      */
 
@@ -17,6 +25,10 @@ require(['jquery', 'search/graph'], function ($, graph) {
         }
     });
     $(window).scroll();
+
+    /*
+     * 获得知识图谱
+     */
 
     // 只有第一页才有知识图谱
     if($(".paging li.active").text() == 1){

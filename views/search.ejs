@@ -5,17 +5,7 @@
 </head>
 <body>
 <% include public/header.ejs %>
-<div class="search-header">
-	<div>
-		<div class="container">
-			<form action="/search" method="get">
-				<input name="qs" class="input" value="<%= qs %>" border="0" autocomplete="off" placeholder="查询您需要的科技文献"
-				       type="search"/>
-				<button type="submit" class="btn btn-primary">搜索</button>
-			</form>
-		</div>
-	</div>
-</div>
+<% include search/search-header.ejs%>
 <div class="container">
 	<!-- 知识图谱 -->
 	<% if(queryNum == 1){ %>
