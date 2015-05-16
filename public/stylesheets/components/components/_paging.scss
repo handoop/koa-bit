@@ -17,7 +17,7 @@ $pagingSquare: 30px;
             line-height: $pagingSquare;
         }
 
-        &.highlight{
+        &.active{
             background: $primary-color;
 
             a{

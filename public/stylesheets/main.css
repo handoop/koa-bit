@@ -303,9 +303,9 @@ header {
       width: 30px;
       height: 30px;
       line-height: 30px; }
-    .paging li.highlight {
+    .paging li.active {
       background: #7D454C; }
-      .paging li.highlight a {
+      .paging li.active a {
         color: #fff; }
 
 .panel {
@@ -319,7 +319,7 @@ header {
     .panel .panel-title:after {
       content: '';
       padding: 34px 3px 0 0;
-      background: #E8433D;
+      background: #c3325f;
       position: absolute;
       margin-left: -85px;
       margin-top: -8px; }
@@ -327,6 +327,26 @@ header {
     padding: 8px 15px;
     box-shadow: 0 10px 10px #666;
     background: #fff; }
+
+.force-graph .tips {
+  fill: #c3325f; }
+.force-graph .node {
+  stroke: #333;
+  stroke-width: 1px; }
+.force-graph .sm-node {
+  fill: transparent; }
+.force-graph .lg-node {
+  fill: #A2A08C; }
+.force-graph .node-text {
+  cursor: pointer;
+  fill: #333;
+  stroke-linejoin: round;
+  transition: fill 0.3s; }
+  .force-graph .node-text:hover {
+    fill: #E8433D; }
+.force-graph .link {
+  stroke: #ccc;
+  stroke-width: 1px; }
 
 /*
  * page: index

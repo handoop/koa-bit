@@ -1,0 +1,36 @@
+.force-graph{
+    // 提示文字
+    .tips{
+        fill: $text-active;
+    }
+
+    // node节点
+    .node{
+        stroke: #333;
+        stroke-width: 1px;
+    }
+    .sm-node{
+        fill: transparent;
+    }
+    .lg-node{
+        fill: #A2A08C;
+    }
+
+    // 文字
+    .node-text{
+        cursor: pointer;
+        fill: #333;
+        stroke-linejoin: round;
+
+        transition: fill 0.3s;
+        &:hover{
+            fill: $text-highlight;
+        }
+    }
+
+    // 连接线条
+    .link{
+        stroke: #ccc;
+        stroke-width: 1px;
+    }
+}

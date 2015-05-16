@@ -15,8 +15,8 @@
                 color: $hover-color;
             }
             &.active {
-                color: #c3325f;
-                border-bottom: 2px solid #c3325f;
+                color: $text-active;
+                border-bottom: 2px solid $text-active;
             }
         }
     }

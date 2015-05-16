@@ -3,7 +3,7 @@
         <a href="/search?qs=<%= qs %>"><<</a>
     </li>
     <% for(var i = recordData.beginIndex; i <= recordData.endIndex; i++){ %>
-    <li <% if(recordData.currentPage == i){ %> class="highlight" <% } %>>
+    <li <% if(recordData.currentPage == i){ %> class="active" <% } %>>
         <a href="/search?qs=<%= qs %>&pn=<%= i %>"><%= i %></a>
     </li>
     <% } %>
