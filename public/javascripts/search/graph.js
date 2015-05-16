@@ -3,16 +3,17 @@ define(['d3'], function(d3){
         /*
          * 获取数据拓扑图
          */
-        getForce: function(url){
-            d3.json("javascripts/data/graphData.json", function (err, data) {
+        getForce: function(url, cb){
+            d3.json(url, function (err, data) {
+                cb && cb();
                 if (err) return console.log(err);
 
                 // 插入SVG
                 var width = 788;
                 var height = 398;
                 var svg = d3.select(".force-graph").append("svg")
-                    .style("width", width)
-                    .style("height", height);
+                    .attr("width", width)
+                    .attr("height", height);
                 svg.append("text")
                     .attr('class', 'tips')
                     .text("双击关键字即可检索")
@@ -32,7 +33,7 @@ define(['d3'], function(d3){
                 });
 
                 force.linkDistance(function (d, i) {
-                    return 8 * i;
+                    return 50 + 20 * i;
                 })
                     .charge(-1000);
 
@@ -78,6 +79,7 @@ define(['d3'], function(d3){
                     .call(force.drag);
 
                 textNodes.node().style.fill = "#E8433D";
+                textNodes.node().style.fontWeight = 600;
 
 
                 // 动态渲染

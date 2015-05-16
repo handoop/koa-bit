@@ -18,11 +18,20 @@ require(['jquery', 'search/graph'], function ($, graph) {
     });
     $(window).scroll();
 
-    // 数据获取
+    // 只有第一页才有知识图谱
     if($(".paging li.active").text() == 1){
+        // 加载loading样式
+        $(".force-graph").addClass("loading");
+
+        // 获取querystring
         var keyword = $("input[name=qs]")[0].value;
-        // "/search/graph?kw=" + keyword && "javascripts/data/graphData.json"
-        graph.getForce("javascripts/data/graphData.json");
+
+        // 开始加载知识图谱
+         //"/search/graph?kw=" + keyword && "javascripts/data/graphData.json"
+        graph.getForce("/search/graph?kw=" + keyword, function(){
+            // 加载完成后移除loading样式
+            $(".force-graph").removeClass("loading");
+        });
     }
 
 });

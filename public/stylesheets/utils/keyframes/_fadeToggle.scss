@@ -1,0 +1,80 @@
+@keyframes fadeToggle {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(1, 1);
+        -moz-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(3, 3);
+        -moz-transform: scale(3, 3);
+        -ms-transform: scale(3, 3);
+        -o-transform: scale(3, 3);
+        transform: scale(3, 3);
+    }
+    100%{
+        opacity: 0;
+        -webkit-transform: scale(1, 1);
+        -moz-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+}
+
+@-moz-keyframes fadeToggle {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(1, 1);
+        -moz-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(3, 3);
+        -moz-transform: scale(3, 3);
+        -ms-transform: scale(3, 3);
+        -o-transform: scale(3, 3);
+        transform: scale(3, 3);
+    }
+    100%{
+        opacity: 0;
+        -webkit-transform: scale(1, 1);
+        -moz-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+}
+
+@-webkit-keyframes fadeToggle {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(1, 1);
+        -moz-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(3, 3);
+        -moz-transform: scale(3, 3);
+        -ms-transform: scale(3, 3);
+        -o-transform: scale(3, 3);
+        transform: scale(3, 3);
+    }
+    100%{
+        opacity: 0;
+        -webkit-transform: scale(1, 1);
+        -moz-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+}
