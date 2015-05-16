@@ -7,7 +7,7 @@ var thousandth = function(num){
     var numArr =  num.toString().split('');
     var start = numArr.indexOf('.') > -1 ? numArr.indexOf('.') - 1 : numArr.length - 1 ;
     var flag = 1;
-    for(var i = start; i >= 0; i--){
+    for(var i = start; i > 0; i--){
         if(flag++ % 3 == 0) numArr.splice(i, 0, ",");
     }
     return numArr.join("");
