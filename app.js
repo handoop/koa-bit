@@ -41,7 +41,11 @@ app.use(render(config.viewDir, {default: "ejs"}));
 
 //post body 解析
 var bodyParser = require('koa-bodyparser');
-app.use(bodyParser());
+app.use(bodyParser({
+    onerror: function (err, ctx) {
+        ctx.throw('body parse error', 422);
+    }
+}));
 
 //数据校验
 var validator = require('koa-validator');

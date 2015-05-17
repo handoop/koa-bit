@@ -10,5 +10,5 @@ module.exports = function(app){
 
     //搜索
     app.get('/search', searchCtrl.record);
-    app.get('/search/graph', graphCtrl.graph)
+    app.post('/search/graph', graphCtrl.graph);
 };

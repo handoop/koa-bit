@@ -1,5 +1,5 @@
 .panel{
-    width: 820px;
+    width: 720px;
     margin: 15px 0;
 
     .panel-title{
@@ -15,6 +15,12 @@
             position: absolute;
             margin-left: -85px;
             margin-top: -8px;
+        }
+        
+        @-moz-document url-prefix() {
+            &:after {
+                padding: 37px 3px 0 0;
+            }
         }
     }
     .panel-content{

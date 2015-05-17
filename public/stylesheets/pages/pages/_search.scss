@@ -41,6 +41,10 @@
 }
 
 // 搜索页的知识图谱
+.graph{
+    display: none;
+}
+
 .search-graph{
     min-height: 400px;
     overflow: auto;

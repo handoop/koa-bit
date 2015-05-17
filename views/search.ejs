@@ -9,8 +9,8 @@
 <div class="container">
 	<!-- 知识图谱 -->
 	<% if(queryNum == 1){ %>
-	<div class="panel">
-		<h2 class="panel-title">知识图谱</h2>
+	<div class="panel graph">
+		<div class="panel-title">知识图谱</div>
 		<div class="panel-content force-graph">
 
 		</div>
@@ -19,7 +19,7 @@
 
 	<!-- 网页搜索-->
 	<div class="panel">
-		<h2 class="panel-title">网页搜索</h2>
+		<div class="panel-title">网页搜索</div>
 		<div class="panel-content">
 			<% if(recordCount != 0){ %>
 			<% include search/search-list.ejs %>

@@ -2,7 +2,7 @@ require(['jquery', 'search/graph'], function ($, graph) {
     /*
      * 搜索条的Label样式
      */
-    $(".search-header label").click(function(){
+    $(".search-header label").click(function () {
         $(this).addClass("active").siblings().removeClass("active");
         location.search = "?" + $(this).parents("form").serialize();
     });
@@ -31,19 +31,28 @@ require(['jquery', 'search/graph'], function ($, graph) {
      */
 
     // 只有第一页才有知识图谱
-    if($(".paging li.active").text() == 1){
-        // 加载loading样式
-        $(".force-graph").addClass("loading");
+    if ($(".paging li.active").text() == 1) {
 
         // 获取querystring
         var keyword = $("input[name=qs]")[0].value;
-
+        var depth = 0;
+        var query = {
+            keyword: keyword,
+            depth: depth || 1
+        }
         // 开始加载知识图谱
-         //"/search/graph?kw=" + keyword && "javascripts/data/graphData.json"
-        graph.getForce("/search/graph?kw=" + keyword, function(){
-            // 加载完成后移除loading样式
-            $(".force-graph").removeClass("loading");
-        });
+        //"/search/graph?kw=" + keyword || "javascripts/data/graphData.json"
+        getForce("/search/graph", query);
+
+        function getForce(url, query){
+            graph.getForce(url, query, function (keyword) {
+                // load，完成后的回调函数
+                if (keyword !== query.keyword){
+                    return getForce(url, query);
+                }
+                $(".graph").slideDown("slow");
+            });
+        }
     }
 
 });

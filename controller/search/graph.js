@@ -8,19 +8,17 @@ connection.on('error', function(err){
 
 module.exports = {
     // 获取信息拓扑图数据
-    graph: function* (){
-        var query = this.query;
-
+    graph: function *(){
+        var query = this.request.body;
         // keywords，图的关键字和数据深度
-        var keywords = query.kw;
-        var depth = query.depth || 1;
+        var keywords = query.keyword;
+        var depth = query.depth;
 
-        if(!keywords) return false;
+        if(!keywords) return this.body =  {nodes: [], links: [], error: "没有关键字"};
 
         var graphService = thrift.createClient(GraphService, connection);
-
+        console.warn("向数据端请求数据：%s, 深度为：%s", keywords, depth);
         var graphData = yield graphService.getKnowledgeUndirectedGraph(keywords, depth);
-        graphData = JSON.parse(graphData);
 
         this.body = graphData;
     }

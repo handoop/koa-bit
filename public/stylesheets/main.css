@@ -375,7 +375,7 @@ header {
         color: #fff; }
 
 .panel {
-  width: 820px;
+  width: 720px;
   margin: 15px 0; }
   .panel .panel-title {
     font-size: 18px;
@@ -389,6 +389,9 @@ header {
       position: absolute;
       margin-left: -85px;
       margin-top: -8px; }
+@-moz-document url-prefix() {
+  .panel .panel-title:after {
+    padding: 37px 3px 0 0; } }
   .panel .panel-content {
     padding: 8px 15px;
     box-shadow: 0 10px 10px #666;
@@ -482,6 +485,9 @@ header {
   position: fixed;
   z-index: 1000;
   top: 0; }
+
+.graph {
+  display: none; }
 
 .search-graph {
   min-height: 400px;
