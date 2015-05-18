@@ -1,4 +1,4 @@
-<div class="footer <% if(recordData.recordCount <= 1){ %> fixed-footer <% } %>">
+<div class="footer <% if(!locals.recordData || recordData.recordCount <= 1){ %> fixed-footer <% } %>">
 	<div class="container">
 		<span>C-Team团队</span>
 	</div>

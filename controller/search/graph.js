@@ -1,9 +1,11 @@
+var config = require("../../helper/config.js");
+
 var thrift = require('thrift');
-var connection = thrift.createConnection('10.0.39.254', 9090);
+var connection = thrift.createConnection(config.PRC_IP, 9090);
 var GraphService = require('../../proxy/gen-nodejs/GraphService.js');
 
 connection.on('error', function(err){
-    console.error("connection.js 错误：%s", err);
+    console.error("connection 获取关系图错误：%s", err);
 });
 
 module.exports = {

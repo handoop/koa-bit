@@ -13,6 +13,29 @@ var thousandth = function(num){
     return numArr.join("");
 };
 
+var switchType = function(type){
+    var output;
+    switch(type){
+        // 2 <==> thesis 
+        case "2":
+            output = "thesis";
+            break;
+        case "thesis":
+            output = "2";
+            break;
+        
+        // 3 <==> magazine    
+        case "3":
+            output = "magazine";
+            break;
+        case "magazine":
+            output = "3";
+            break;
+    }
+    return output;
+}
+
 module.exports = {
-    thousandth: thousandth
+    thousandth: thousandth,
+    switchType: switchType
 };

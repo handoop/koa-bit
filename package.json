@@ -12,6 +12,7 @@
     "koa": "^0.14.0",
     "koa-basic-auth": "^1.1.1",
     "koa-bodyparser": "^2.0.0",
+    "koa-combo": "^1.0.1",
     "koa-compose": "^2.3.0",
     "koa-csrf": "^2.1.1",
     "koa-logger": "^1.2.1",

@@ -1,6 +1,6 @@
 // 分离出各个page的Controller
 var indexCtrl = require('../controller/index');
-var searchCtrl = require('../controller/search/search');
+var searchCtrl = require('../controller/search/record');
 var graphCtrl = require('../controller/search/graph');
 
 // 配置路由
@@ -8,7 +8,10 @@ module.exports = function(app){
     //首页
     app.get('/', indexCtrl.index);
 
-    //搜索
-    app.get('/search', searchCtrl.record);
+    //搜索页
+    app.get('/records', searchCtrl.recordList);
     app.post('/search/graph', graphCtrl.graph);
+
+    //记录详情
+    app.get('/article/:type/:id', searchCtrl.article)
 };

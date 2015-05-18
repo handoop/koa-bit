@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include public/head.ejs %>
+</head>
+<body>
+<% include public/header.ejs %>
+<div class="container">
+	<div class="leftContent">
+		<div class="panel">
+			<div class="panel-content">
+				<h1 class="article-title"><%= article.title %></h1>
+				<h6 class="article-detail">
+					<span>作者：<%= article.author %></span>
+					<span>导师：<%= article.tutors %></span>
+					<span>学术机构: <%= article.institution %></span>
+				</h6>	
+				<div class="article-content">
+					<%= article.summary %>
+				</div>
+				<div class="article-keywords">
+					<% article.keywords.forEach(function(keyword){ %>
+						<span><%= keyword %></span>	
+					<% }) %>	
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+		<!--专家信息-->
+	</div>
+</div>
+<% include public/footer.ejs %>
+</body>
+</html>

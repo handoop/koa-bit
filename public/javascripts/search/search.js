@@ -1,10 +1,10 @@
 require(['jquery', 'search/graph'], function ($, graph) {
     /*
-     * 搜索条的Label样式
+     * 搜索条的Label高亮样式
      */
     $(".search-header label").click(function () {
         $(this).addClass("active").siblings().removeClass("active");
-        location.search = "?" + $(this).parents("form").serialize();
+        location.search = "?" + $(this).parents("form").serialize(); // 修改Url参数会直接重新加载
     });
 
     /*

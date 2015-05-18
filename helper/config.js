@@ -6,20 +6,19 @@ var config = {
     "title":"",
     //默认生产环境
     "env":"production",
+    // app name
     "appName": "koa-bit",
     //端口号配置
     "port": 3000,
+    //PRC-IP地址
+    "PRC_IP": "172.16.13.101",
     //模板所在的目录
     "viewDir": path.join(__dirname,'..','views'),
     //log所在的目录
     "logDir": path.join(__dirname,'..', 'log'),
     //静态文件所在的目录
-    "staticDir": path.join(__dirname,'..', 'public'),
-    //RPC代理地址
-    "proxyIP": '10.0.39.254',
-    //RPC代理端口
-    "proxyPort": 9090
-    
+    "staticDir": path.join(__dirname,'..', 'public')
+
 
 };
 

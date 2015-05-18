@@ -1,11 +1,11 @@
 <div class="search-header">
 	<div>
 		<div class="container">
-			<form action="/search" method="get">
-				<label <% if(type == 2){ %> class="active" <% } %> for="th">
+			<form action="/records" method="get">
+				<label <% if(type === "thesis"){ %> class="active" <% } %> for="th">
 					论文<input id="th" type="radio" name="type" value="2" <% if(type == 2){ %> checked <% } %>/>
 				</label>
-				<label <% if(type == 3){ %> class="active" <% } %> for="ma">
+				<label <% if(type === "magazine"){ %> class="active" <% } %> for="ma">
 					期刊<input id="ma" type="radio" name="type" value="3"  <% if(type == 3){ %> checked <% } %>/>
 				</label>
 				<input name="qs" class="input" value="<%= qs %>" border="0" autocomplete="off" placeholder="查询您需要的科技文献"
