@@ -1,0 +1,21 @@
+extends public/layout
+block content
+   div.container
+      //文章详情
+      div.panel
+         div.panel-content
+            h1.article-title #{article.title}
+            h6.article-detail
+               span 作者：#{article.author}
+               span 导师：#{article.tutors}
+               span 学术机构：#{article.institution}
+            div.article-content #{article.summary}
+            div.article-keywords
+               //- 把关键字字符串转化成数组
+               span !{article.keywords}
+               //- var keywords = article.keywords.split(";");
+               //for keyword in keywords
+               //    span #{keyword}
+      div.sidebar
+         //专家信息
+

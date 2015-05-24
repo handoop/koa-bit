@@ -37,7 +37,7 @@ app.use(session(app));
 
 // 模板引擎
 var render = require('koa-views');
-app.use(render(config.viewDir, {default: "ejs"}));
+app.use(render(config.viewDir, {default: "jade"}));
 
 //post body 解析
 var bodyParser = require('koa-bodyparser');

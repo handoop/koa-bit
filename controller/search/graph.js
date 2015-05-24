@@ -19,7 +19,7 @@ module.exports = {
         if(!keywords) return this.body =  {nodes: [], links: [], error: "没有关键字"};
 
         var graphService = thrift.createClient(GraphService, connection);
-        console.warn("向数据端请求数据：%s, 深度为：%s", keywords, depth);
+        console.warn("向数据端请求图像数据：%s, 深度为：%s", keywords, depth);
         var graphData = yield graphService.getKnowledgeUndirectedGraph(keywords, depth);
 
         this.body = graphData;

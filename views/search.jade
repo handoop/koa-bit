@@ -1,0 +1,20 @@
+extends public/layout
+block content
+    include search/search-header
+    div.container.clearfix
+        div.leftContent
+            //知识图谱
+            if queryNum == 1
+                div.panel.graph
+                    div.panel-title 知识图谱
+                    div.panel-content.force-graph
+            //网页搜索
+            div.panel
+                div.panel-title 网页搜索
+                div.panel-content
+                    if recordData.recordCount > 0
+                        include search/search-list
+                    else
+                      span 很抱歉，没有找到与“#{qs}”相关的网页。请确认输入是否正确。
+        div.sidebar
+            //专家推荐

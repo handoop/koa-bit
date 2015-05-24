@@ -2,7 +2,7 @@ var config = require("../../helper/config.js");
 
 // RPC requires
 var thrift = require('thrift');
-var connection = thrift.createConnection(config.PRC_IP, 9091);
+var connection = thrift.createConnection(config.PRC_IP, 9091, {connect_timeout: 10000, retry_delay: 2000});
 var SearchService = require('../../proxy/gen-nodejs/SearchService.js');
 
 connection.on('error', function (err) {
@@ -26,24 +26,24 @@ module.exports = {
         // 查询字符串和页码
         var type = query.type || "2";
         var qs = query.qs;
-        var pageNum = query.fn || "1";
+        var pageNum = query.pn || "1";
 
         // 搜索字符为空时，重定向回主页
-        if (!qs) this.redirect('/');
+        if (!qs) return this.redirect('/');
 
         // 调用PRC接口，获取数据
-        console.warn("%s, 搜索数据：%s", new Date(), qs);
+        console.warn("向数据端获取搜素数据，关键字：%s", qs);
         var recordData = yield queryService.searcher(parseInt(type), qs, parseInt(pageNum));
         recordData = JSON.parse(recordData);
 
-        yield this.render('search', {
-        title: qs + " - 比特能检索",
-        qs: qs,
-        queryNum: recordData.page.currentPage,
-        recordCount: helper.thousandth(recordData.page.recordCount),
-        recordData: recordData.page,
-        type: helper.switchType(type),
-        pathname: this.path
+        return yield this.render('search', {
+            title: qs + " - 比特能检索",
+            qs: qs,
+            queryNum: recordData.page.currentPage,
+            recordCount: helper.thousandth(recordData.page.recordCount),
+            recordData: recordData.page,
+            type: helper.switchType(type), //th, ma
+            pathname: this.path
         });
     },
 
@@ -57,6 +57,7 @@ module.exports = {
 
         // 调用PRC接口，获取数据
         var article = null;
+        console.warn("向数据端请求文章详细数据, id: %s", id);
         if (type == 2) {
             article = yield queryService.thItem(id);
         } else if (type == 3) {
@@ -67,12 +68,11 @@ module.exports = {
                 status: 404
             })
         }
-        //recordInfo = JSON.parse(recordInfo);
         console.log(article);
         // 渲染
-        yield this.render('article', {
+        return yield this.render('article', {
             title: "详情",
-            article: article,
+            article: JSON.parse(article),
             type: this.params.type,
             pathname: this.path
         });

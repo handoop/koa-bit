@@ -1,0 +1,18 @@
+mixin activeLabel(obj)
+    if type === obj.pathname
+        label.active(for=obj.pathname) #{obj.name}
+            input(id=obj.pathname, type="radio", name="type", value=obj.value, checked)
+    else
+        label(for=obj.pathname) #{obj.name}
+            input(id=obj.pathname, type="radio", name="type", value=obj.value)
+
+
+div.search-header
+    div
+        div.container
+            form(action='/records', method='get')
+                +activeLabel({pathname: "thesis", name: "论文", value: 2})
+                +activeLabel({pathname: "magazine", name: "周刊", value: 3})
+                input.input(name="qs", value="#{qs}", type="search",
+                autocomplete="off", placeholder="查询您需要的科技文献")
+                button.btn.btn-primary(type="submit") 搜索

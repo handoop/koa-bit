@@ -41,7 +41,6 @@ require(['jquery', 'search/graph'], function ($, graph) {
             depth: depth || 1
         }
         // 开始加载知识图谱
-        //"/search/graph?kw=" + keyword || "javascripts/data/graphData.json"
         getForce("/search/graph", query);
 
         function getForce(url, query){

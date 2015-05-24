@@ -1,0 +1,11 @@
+doctype html
+html
+    head
+        title #{title}
+        link(rel='stylesheet', href='/stylesheets/main.css')
+        script(data-main='/javascripts/main', src='/javascripts/lib/require.js')
+    body
+        include header
+        block content
+        include footer
+
