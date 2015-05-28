@@ -1,0 +1,17 @@
+// activeLi，判断分页是否需要高亮
+mixin activeLi(index)
+   if recordData.currentPage == index
+      li.active
+         a(href="/records?qs=#{qs}&pn=#{index}&type=#{typeNum}") #{index}
+   else
+      li
+         a(href="/records?qs=#{qs}&pn=#{index}&type=#{typeNum}") #{index}
+ul.paging.clearfix
+   li
+      a(href="/records?qs=#{qs}&pn=1") <<
+   - for(var i = recordData.beginIndex; i <= recordData.endIndex; i++){
+      +activeLi(i)
+   - }
+   li
+      a(href="/records?qs=#{qs}&pn=#{recordData.pageCount}&type=#{typeNum}") >>
+

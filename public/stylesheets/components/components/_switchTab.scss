@@ -1,0 +1,29 @@
+.switchTab{
+    margin: 10px 0 20px;
+    li{
+        float: left;
+        padding: 5px 10px;
+        border-bottom: 1px solid #dfdfdf;
+        &:not(:last-of-type){
+            border-right: 1px solid #ccc;
+        }
+        background: #dfdfdf;
+
+        &.active{
+            border-bottom: 1px solid #ccc;
+            background: #fff;
+            box-shadow: 0 1px 2px #000;
+        }
+
+        a{
+            text-decoration: none;
+            color: $primary-color;
+        }
+    }
+}
+
+.switchContent{
+    &>div:not(:first-of-type) {
+        display: none;
+    }
+}

@@ -1,0 +1,57 @@
+.article{
+    .title{
+        margin: 10px 0;
+    }
+
+    .detail{
+        margin: 20px 0;
+
+        span{
+            margin: 0 10px;
+        }
+    }
+
+    .content{
+        text-indent: 2em;
+        margin: 15px 0;
+        line-height: 1.5em;
+        font-size: 18px;
+        padding: 0 20px;
+    }
+
+    .keywords{
+        padding: 0 20px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        line-height: 20px;
+        a{
+            font-size: 14px;
+            text-decoration: underline;
+            margin: 0 5px;
+        }
+    }
+}
+
+.expert{
+
+
+    .panel-content{
+        h1{
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        &>div{
+            margin: 25px 0;
+        }
+        hr{
+            border-top: 1px dotted #ccc;
+        }
+    }
+    .expert-data{
+        li{
+            float: left;
+            width: 50%;
+            margin: 10px 0;
+        }
+    }
+}

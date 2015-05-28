@@ -13,6 +13,7 @@ div.search-header
             form(action='/records', method='get')
                 +activeLabel({pathname: "thesis", name: "论文", value: 2})
                 +activeLabel({pathname: "magazine", name: "周刊", value: 3})
+                +activeLabel({pathname: "expert", name: "专家", value: 4})
                 input.input(name="qs", value="#{qs}", type="search",
                 autocomplete="off", placeholder="查询您需要的科技文献")
                 button.btn.btn-primary(type="submit") 搜索

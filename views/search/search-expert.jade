@@ -1,0 +1,10 @@
+ul.search-list
+   div.tips.text-muted 比特能检索为您找到相关结果约
+      i #{recordCount} 个
+   each record in recordData.recordList
+      li
+         h1.title
+            a(href="/expert/#{record.id}") !{record.name}
+         div 机构：!{record.institution}
+         div 相关领域：!{record.field}
+include paging

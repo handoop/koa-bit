@@ -2,3 +2,45 @@
    Created by YikaJ on 15/5/24.
 extends public/layout
 block content
+    div.container.clearfix
+        //专家信息
+        div.panel.pull-left.expert.sidebar
+            div.panel-title 专家信息
+            div.panel-content
+                div.img.text-center
+                    a(href="/expert/210")
+                        img(alt="学者图", width=100, height=100)
+                h1.text-center
+                    a(href="/expert/210") #{expertInfo.name}
+                hr
+                div 研究单位：#{expertInfo.institution}
+                div 研究方向：#{expertInfo.field}
+                hr
+                ul.expert-data.clearfix
+                    li 成果数:
+                        span #{expertInfo.evaluation.num_result}
+                    li H指数:
+                        span #{expertInfo.evaluation.num_h}
+                    li 关注数:
+                        span 32
+                    li 被引用数:
+                        span #{expertInfo.evaluation.num_related}
+        // 专家详情
+        div.panel.pull-right
+            div.panel-title 专家详情
+            div.panel-content
+                ul.switchTab.clearfix
+                    li.active
+                        a(data-targetId="achievement", href="javascript:") 学术成果
+                    li
+                        a(data-targetId="analysis", href="javascript:") 学术影响力分析
+                    li
+                        a(data-targetId="relationship", href="javascript:") 专家关系图谱
+
+                div.switchContent
+                    div#achievement
+                        include expert/achievement
+                    div#analysis
+                        include expert/analysis
+                    div#relationship
+                        include expert/relationship

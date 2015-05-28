@@ -1,10 +1,11 @@
 ul.search-list
-   div.tips 比特能检索为您找到相关结果约
-      i #{recordCount} 个
-   each record in recordData.recordList
-      li
-         h1.title
-            a(href="/article/#{type}/#{record.id}") !{record.title}
-         div.author 作者：!{record.authors}
-         p.summary !{record.summary}
-include ../public/paging
+    div.tips.text-muted 比特能检索为您找到相关结果约
+        i #{recordCount} 个
+    each record in recordData.recordList
+        li
+            h1.title
+                a(href="/article/#{type}/#{record.id}") !{record.title}
+            div.author 作者：!{record.authors}
+            p.summary !{record.summary}
+
+include paging

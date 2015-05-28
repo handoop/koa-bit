@@ -1,4 +1,4 @@
-require(['jquery', 'search/graph'], function ($, graph) {
+require(['jquery', 'graph/graph'], function ($, graph) {
     /*
      * 搜索条的Label高亮样式
      */
@@ -30,8 +30,8 @@ require(['jquery', 'search/graph'], function ($, graph) {
      * 获得知识图谱
      */
 
-    // 只有第一页才有知识图谱
-    if ($(".paging li.active").text() == 1) {
+    // 只有第一页论文才有知识图谱
+    if ($(".paging li.active").text() == 1 && $("label.active").text() == "论文") {
 
         // 获取querystring
         var keyword = $("input[name=qs]")[0].value;
@@ -41,17 +41,9 @@ require(['jquery', 'search/graph'], function ($, graph) {
             depth: depth || 1
         }
         // 开始加载知识图谱
-        getForce("/search/graph", query);
-
-        function getForce(url, query){
-            graph.getForce(url, query, function (keyword) {
-                // load，完成后的回调函数
-                if (keyword !== query.keyword){
-                    return getForce(url, query);
-                }
-                $(".graph").slideDown("slow");
-            });
-        }
+        graph.getForce("/search/graph", query, function(){
+            $(".graph").slideDown("slow");
+        });
     }
 
 });

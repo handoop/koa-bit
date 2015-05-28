@@ -66,7 +66,8 @@
   text-transform: capitalize; }
 
 .text-muted {
-  color: #a9a9a9; }
+  color: #a9a9a9;
+  font-size: 12px; }
 
 @keyframes fadeToggle {
   0% {
@@ -176,6 +177,7 @@ ul, ol {
 
 /* 重置文本格式元素 */
 a {
+  color: #428bca;
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }
@@ -219,6 +221,7 @@ body, html {
   background: #EDEBED; }
 
 .container {
+  clear: both;
   width: 1020px;
   display: block;
   margin-left: auto;
@@ -252,17 +255,23 @@ header {
       color: #c3325f;
       border-bottom: 2px solid #c3325f; }
 
+.sidebar {
+  width: 260px !important; }
+
 .form {
   margin: 20px 0; }
 
 .footer, .fixed-footer {
+  margin-top: 30px;
   color: #f5f5f5;
   background: #222;
   text-align: center;
+  display: none;
+  min-width: 1020px;
   width: 100%;
   border-top: 3px solid #7D454C; }
   .footer .container, .fixed-footer .container {
-    padding: 15px 0; }
+    padding: 20px 0; }
 
 .fixed-footer {
   position: fixed;
@@ -382,18 +391,18 @@ header {
     border-left: 6px solid #000;
     padding: 8px 10px;
     margin: 10px 0; }
-    .panel .panel-title:after {
+    .panel .panel-title:before {
       content: '';
       padding: 34px 3px 0 0;
       background: #c3325f;
       position: absolute;
-      margin-left: -85px;
+      margin-left: -13px;
       margin-top: -8px; }
 @-moz-document url-prefix() {
   .panel .panel-title:after {
     padding: 37px 3px 0 0; } }
   .panel .panel-content {
-    padding: 8px 15px;
+    padding: 20px 15px;
     box-shadow: 0 10px 10px #666;
     background: #fff; }
 
@@ -440,6 +449,35 @@ header {
     right: 0;
     left: 0;
     margin: auto; }
+
+.switchTab {
+  margin: 10px 0 20px; }
+  .switchTab li {
+    float: left;
+    padding: 5px 10px;
+    border-bottom: 1px solid #dfdfdf;
+    background: #dfdfdf; }
+    .switchTab li:not(:last-of-type) {
+      border-right: 1px solid #ccc; }
+    .switchTab li.active {
+      border-bottom: 1px solid #ccc;
+      background: #fff;
+      box-shadow: 0 1px 2px #000; }
+    .switchTab li a {
+      text-decoration: none;
+      color: #7D454C; }
+
+.switchContent > div:not(:first-of-type) {
+  display: none; }
+
+.histogram rect, #analysis .pie rect {
+  fill: steelblue;
+  shape-rendering: crispEdges; }
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges; }
 
 /*
  * page: index
@@ -496,9 +534,7 @@ header {
 .search-list {
   list-style: none; }
   .search-list .tips {
-    margin: 10px 0;
-    color: #a9a9a9;
-    font-size: 12px; }
+    margin: 10px 0; }
   .search-list > li {
     padding: 18px 0;
     border-top: 1px dotted #dfdfdf;
@@ -520,5 +556,69 @@ header {
 
 .highlight {
   color: #E8433D; }
+
+.article .title {
+  margin: 10px 0; }
+.article .detail {
+  margin: 20px 0; }
+  .article .detail span {
+    margin: 0 10px; }
+.article .content {
+  text-indent: 2em;
+  margin: 15px 0;
+  line-height: 1.5em;
+  font-size: 18px;
+  padding: 0 20px; }
+.article .keywords {
+  padding: 0 20px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px; }
+  .article .keywords a {
+    font-size: 14px;
+    text-decoration: underline;
+    margin: 0 5px; }
+
+.expert .panel-content h1 {
+  font-size: 20px;
+  margin-bottom: 20px; }
+.expert .panel-content > div {
+  margin: 25px 0; }
+.expert .panel-content hr {
+  border-top: 1px dotted #ccc; }
+.expert .expert-data li {
+  float: left;
+  width: 50%;
+  margin: 10px 0; }
+
+#achievement {
+  padding-left: 20px; }
+  #achievement li {
+    margin: 20px 0; }
+    #achievement li output {
+      color: #333; }
+  #achievement .author, #achievement .source {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #aaa; }
+
+#analysis hr {
+  border-top: 3px dotted #999; }
+#analysis h2 {
+  color: #E8433D; }
+#analysis h4 {
+  margin: 30px 0 10px;
+  color: #a9a9a9; }
+#analysis table {
+  margin: 10px 0;
+  text-align: center;
+  font-size: 12px;
+  border: 1px solid #000; }
+  #analysis table td {
+    padding: 5px 10px; }
+#analysis .histogram, #analysis .pie {
+  min-height: 350px;
+  margin: 20px;
+  border: 1px solid #dfdfdf; }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,32 @@
+-   var recordList = {title: "湖北省马铃薯高产栽培技术探讨湖北省马铃薯高产栽培技术探讨",authors: "余贵先;雷昌云;邢丹英;沈其文;汪澄;叶光军;刘国波;龙文莉;",source: "[期刊]. 江西农业学报 0 (01) pp.48-50+59"}
+
+
+div.text-muted 成果共有#{expertInfo.evaluation.num_result}条
+ul
+    -var i = 0; while(i++ < 13){
+        li
+            h1 #{i}.
+                a(href="/article/2/2008")=recordList.title
+            div.author 作者:
+                output #{recordList.authors}
+            div.source 文献来源:
+                output #{recordList.source}
+    - }
+
+
+// activeLi，判断分页是否需要高亮
+//mixin activeLi(index)
+//    if recordData.currentPage == index
+//        li.active
+//            a(href="/expert/#{id}?qs=#{qs}&pn=#{index}") #{index}
+//    else
+//        li
+//            a(href="/expert/#{id}?qs=#{qs}&pn=#{index}") #{index}
+//ul.paging.clearfix
+//    li
+//        a(href="/records?qs=#{qs}&pn=1") <<
+//    - for(var i = recordData.beginIndex; i <= recordData.endIndex; i++){
+//    +activeLi(i)
+//    - }
+//    li
+//        a(href="/records?qs=#{qs}&pn=#{recordData.pageCount}") >>

@@ -8,12 +8,12 @@
         padding: 8px 10px;
         margin: 10px 0;
 
-        &:after{
+        &:before{
             content: '';
             padding: 34px 3px 0 0;
             background: $text-active;
             position: absolute;
-            margin-left: -85px;
+            margin-left: -13px;
             margin-top: -8px;
         }
         
@@ -24,7 +24,7 @@
         }
     }
     .panel-content{
-        padding: 8px 15px;
+        padding: 20px 15px;
         box-shadow: 0 10px 10px #666;
         background: #fff;
     }

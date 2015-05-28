@@ -2,6 +2,7 @@
 var indexCtrl = require('../controller/index');
 var searchCtrl = require('../controller/search/record');
 var graphCtrl = require('../controller/search/graph');
+var expertCtrl = require('../controller/expert');
 
 // 配置路由
 module.exports = function(app){
@@ -13,5 +14,8 @@ module.exports = function(app){
     app.post('/search/graph', graphCtrl.graph);
 
     //记录详情
-    app.get('/article/:type/:id', searchCtrl.article)
+    app.get('/article/:type/:id', searchCtrl.article);
+
+    //专家详情页
+    app.get('/expert/:id', expertCtrl.expert);
 };

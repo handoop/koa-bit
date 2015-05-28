@@ -31,6 +31,14 @@ var switchType = function(type){
         case "magazine":
             output = "3";
             break;
+
+        // 4 <==> expert
+        case "4":
+            output = "expert";
+            break;
+        case "expert":
+            output = "4";
+            break;
     }
     return output;
 }

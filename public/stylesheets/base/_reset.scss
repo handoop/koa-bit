@@ -55,6 +55,7 @@ ul, ol {
 /* 重置文本格式元素 */
 
 a {
+    color: #428bca;
     text-decoration: none;
     &:hover {
         text-decoration: underline;
@@ -110,3 +111,5 @@ hr {
 p {
     line-height: 120%;
 }
+
+body{}

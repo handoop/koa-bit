@@ -2,19 +2,31 @@ extends public/layout
 block content
     include search/search-header
     div.container.clearfix
-        div.leftContent
-            //知识图谱
-            if queryNum == 1
-                div.panel.graph
-                    div.panel-title 知识图谱
-                    div.panel-content.force-graph
-            //网页搜索
+        if typeNum == 2 || typeNum == 3
+            div.pull-left
+                //知识图谱
+                if queryNum == 1
+                    div.panel.graph
+                        div.panel-title 知识图谱
+                        div.panel-content.force-graph
+                //网页搜索
+                div.panel
+                    div.panel-title 网页搜索
+                    div.panel-content
+                        if recordData.recordCount > 0
+                            include search/search-list
+                        else
+                          span 很抱歉，没有找到与“#{qs}”相关的网页。请确认输入是否正确。
+            div.pull-right
+                div.panel.sidebar
+                    div.panel-title 相关专家推荐
+                    div.panel-content one
+
+        else if typeNum == 4
             div.panel
-                div.panel-title 网页搜索
+                div.panel-title 专家搜索
                 div.panel-content
                     if recordData.recordCount > 0
-                        include search/search-list
+                        include search/search-expert
                     else
-                      span 很抱歉，没有找到与“#{qs}”相关的网页。请确认输入是否正确。
-        div.sidebar
-            //专家推荐
+                        span 很抱歉，没有找到与“#{qs}”相关的信息。请确认输入是否正确。

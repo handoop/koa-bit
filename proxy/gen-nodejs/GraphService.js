@@ -130,6 +130,125 @@ GraphService_getKnowledgeUndirectedGraph_result.prototype.write = function(outpu
   return;
 };
 
+GraphService_getExpertUndirectedGraph_args = function(args) {
+  this.name = null;
+  this.depth = null;
+  if (args) {
+    if (args.name !== undefined) {
+      this.name = args.name;
+    }
+    if (args.depth !== undefined) {
+      this.depth = args.depth;
+    }
+  }
+};
+GraphService_getExpertUndirectedGraph_args.prototype = {};
+GraphService_getExpertUndirectedGraph_args.prototype.read = function(input) {
+  input.readStructBegin();
+  while (true)
+  {
+    var ret = input.readFieldBegin();
+    var fname = ret.fname;
+    var ftype = ret.ftype;
+    var fid = ret.fid;
+    if (ftype == Thrift.Type.STOP) {
+      break;
+    }
+    switch (fid)
+    {
+      case 1:
+      if (ftype == Thrift.Type.STRING) {
+        this.name = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 2:
+      if (ftype == Thrift.Type.I32) {
+        this.depth = input.readI32();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      default:
+        input.skip(ftype);
+    }
+    input.readFieldEnd();
+  }
+  input.readStructEnd();
+  return;
+};
+
+GraphService_getExpertUndirectedGraph_args.prototype.write = function(output) {
+  output.writeStructBegin('GraphService_getExpertUndirectedGraph_args');
+  if (this.name !== null && this.name !== undefined) {
+    output.writeFieldBegin('name', Thrift.Type.STRING, 1);
+    output.writeString(this.name);
+    output.writeFieldEnd();
+  }
+  if (this.depth !== null && this.depth !== undefined) {
+    output.writeFieldBegin('depth', Thrift.Type.I32, 2);
+    output.writeI32(this.depth);
+    output.writeFieldEnd();
+  }
+  output.writeFieldStop();
+  output.writeStructEnd();
+  return;
+};
+
+GraphService_getExpertUndirectedGraph_result = function(args) {
+  this.success = null;
+  if (args) {
+    if (args.success !== undefined) {
+      this.success = args.success;
+    }
+  }
+};
+GraphService_getExpertUndirectedGraph_result.prototype = {};
+GraphService_getExpertUndirectedGraph_result.prototype.read = function(input) {
+  input.readStructBegin();
+  while (true)
+  {
+    var ret = input.readFieldBegin();
+    var fname = ret.fname;
+    var ftype = ret.ftype;
+    var fid = ret.fid;
+    if (ftype == Thrift.Type.STOP) {
+      break;
+    }
+    switch (fid)
+    {
+      case 0:
+      if (ftype == Thrift.Type.STRING) {
+        this.success = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 0:
+        input.skip(ftype);
+        break;
+      default:
+        input.skip(ftype);
+    }
+    input.readFieldEnd();
+  }
+  input.readStructEnd();
+  return;
+};
+
+GraphService_getExpertUndirectedGraph_result.prototype.write = function(output) {
+  output.writeStructBegin('GraphService_getExpertUndirectedGraph_result');
+  if (this.success !== null && this.success !== undefined) {
+    output.writeFieldBegin('success', Thrift.Type.STRING, 0);
+    output.writeString(this.success);
+    output.writeFieldEnd();
+  }
+  output.writeFieldStop();
+  output.writeStructEnd();
+  return;
+};
+
 GraphServiceClient = exports.Client = function(output, pClass) {
     this.output = output;
     this.pClass = pClass;
@@ -187,6 +306,54 @@ GraphServiceClient.prototype.recv_getKnowledgeUndirectedGraph = function(input,m
   }
   return callback('getKnowledgeUndirectedGraph failed: unknown result');
 };
+GraphServiceClient.prototype.getExpertUndirectedGraph = function(name, depth, callback) {
+  this._seqid = this.new_seqid();
+  if (callback === undefined) {
+    var _defer = Q.defer();
+    this._reqs[this.seqid()] = function(error, result) {
+      if (error) {
+        _defer.reject(error);
+      } else {
+        _defer.resolve(result);
+      }
+    };
+    this.send_getExpertUndirectedGraph(name, depth);
+    return _defer.promise;
+  } else {
+    this._reqs[this.seqid()] = callback;
+    this.send_getExpertUndirectedGraph(name, depth);
+  }
+};
+
+GraphServiceClient.prototype.send_getExpertUndirectedGraph = function(name, depth) {
+  var output = new this.pClass(this.output);
+  output.writeMessageBegin('getExpertUndirectedGraph', Thrift.MessageType.CALL, this.seqid());
+  var args = new GraphService_getExpertUndirectedGraph_args();
+  args.name = name;
+  args.depth = depth;
+  args.write(output);
+  output.writeMessageEnd();
+  return this.output.flush();
+};
+
+GraphServiceClient.prototype.recv_getExpertUndirectedGraph = function(input,mtype,rseqid) {
+  var callback = this._reqs[rseqid] || function() {};
+  delete this._reqs[rseqid];
+  if (mtype == Thrift.MessageType.EXCEPTION) {
+    var x = new Thrift.TApplicationException();
+    x.read(input);
+    input.readMessageEnd();
+    return callback(x);
+  }
+  var result = new GraphService_getExpertUndirectedGraph_result();
+  result.read(input);
+  input.readMessageEnd();
+
+  if (null !== result.success) {
+    return callback(null, result.success);
+  }
+  return callback('getExpertUndirectedGraph failed: unknown result');
+};
 GraphServiceProcessor = exports.Processor = function(handler) {
   this._handler = handler
 }
@@ -228,6 +395,36 @@ GraphServiceProcessor.prototype.process_getKnowledgeUndirectedGraph = function(s
     this._handler.getKnowledgeUndirectedGraph(args.keyword, args.depth,  function (err, result) {
       var result = new GraphService_getKnowledgeUndirectedGraph_result((err != null ? err : {success: result}));
       output.writeMessageBegin("getKnowledgeUndirectedGraph", Thrift.MessageType.REPLY, seqid);
+      result.write(output);
+      output.writeMessageEnd();
+      output.flush();
+    });
+  }
+}
+
+GraphServiceProcessor.prototype.process_getExpertUndirectedGraph = function(seqid, input, output) {
+  var args = new GraphService_getExpertUndirectedGraph_args();
+  args.read(input);
+  input.readMessageEnd();
+  if (this._handler.getExpertUndirectedGraph.length === 2) {
+    Q.fcall(this._handler.getExpertUndirectedGraph, args.name, args.depth)
+      .then(function(result) {
+        var result = new GraphService_getExpertUndirectedGraph_result({success: result});
+        output.writeMessageBegin("getExpertUndirectedGraph", Thrift.MessageType.REPLY, seqid);
+        result.write(output);
+        output.writeMessageEnd();
+        output.flush();
+      }, function (err) {
+        var result = new GraphService_getExpertUndirectedGraph_result(err);
+        output.writeMessageBegin("getExpertUndirectedGraph", Thrift.MessageType.REPLY, seqid);
+        result.write(output);
+        output.writeMessageEnd();
+        output.flush();
+      });
+  } else {
+    this._handler.getExpertUndirectedGraph(args.name, args.depth,  function (err, result) {
+      var result = new GraphService_getExpertUndirectedGraph_result((err != null ? err : {success: result}));
+      output.writeMessageBegin("getExpertUndirectedGraph", Thrift.MessageType.REPLY, seqid);
       result.write(output);
       output.writeMessageEnd();
       output.flush();

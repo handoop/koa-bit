@@ -3,6 +3,7 @@ body,html{
 }
 
 .container{
+    clear: both;
   width: $container-width;
   @include center-block;
 }

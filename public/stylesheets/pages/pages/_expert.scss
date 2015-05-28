@@ -1,0 +1,48 @@
+// 学者成果
+#achievement{
+    padding-left: 20px;
+    li{
+        margin: 20px 0;
+
+        output{
+            color: #333;
+        }
+    }
+    .author, .source{
+        margin: 5px 0;
+        font-size: 14px;
+        color: #aaa;
+    }
+}
+
+// 学者分析
+#analysis{
+    hr{
+        border-top: 3px dotted #999;
+    }
+    h2{
+        color: $text-highlight
+    }
+    h4{
+        margin: 30px 0 10px;
+        color: $text-muted-color
+    }
+    table{
+        margin: 10px 0;
+        text-align: center;
+        font-size: 12px;
+        border: 1px solid #000;
+
+        td{
+            padding: 5px 10px;
+        }
+    }
+    .histogram{
+        min-height: 350px;
+        margin: 20px;
+        border: 1px solid #dfdfdf;
+    }
+    .pie{
+        @extend .histogram
+    }
+}

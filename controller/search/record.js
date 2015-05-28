@@ -34,6 +34,7 @@ module.exports = {
         // 调用PRC接口，获取数据
         console.warn("向数据端获取搜素数据，关键字：%s", qs);
         var recordData = yield queryService.searcher(parseInt(type), qs, parseInt(pageNum));
+        console.log(recordData);
         recordData = JSON.parse(recordData);
 
         return yield this.render('search', {
@@ -42,7 +43,8 @@ module.exports = {
             queryNum: recordData.page.currentPage,
             recordCount: helper.thousandth(recordData.page.recordCount),
             recordData: recordData.page,
-            type: helper.switchType(type), //th, ma
+            type: helper.switchType(type), //输出thesis, magazine
+            typeNum: type,
             pathname: this.path
         });
     },
@@ -68,7 +70,6 @@ module.exports = {
                 status: 404
             })
         }
-        console.log(article);
         // 渲染
         return yield this.render('article', {
             title: "详情",
