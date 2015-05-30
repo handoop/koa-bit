@@ -3,7 +3,7 @@ require(["jquery", "expert/switchTab", "graph/graph"], function($, switchTab, gr
 
     if($switchTab.length <= 0) return false;
 
-    var analysis = true,
+    var analysis = true, //用于单例
         relationship = true;
 
     switchTab($switchTab, function($obj){
@@ -17,9 +17,11 @@ require(["jquery", "expert/switchTab", "graph/graph"], function($, switchTab, gr
         }
         if($obj[0].id == "relationship"){
             if(relationship){
+                var keyword = $("#expert").text();
                 graph.getForce("/search/graph", {
-                    keyword: "数据仓库",
-                    depth: 1
+                    keyword: keyword,
+                    depth: 1,
+                    type: 2
                 });
                 relationship = false;
             }

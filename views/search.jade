@@ -17,12 +17,12 @@ block content
                             include search/search-list
                         else
                           span 很抱歉，没有找到与“#{qs}”相关的网页。请确认输入是否正确。
+            // 专家推荐
             div.pull-right
-                div.panel.sidebar
-                    div.panel-title 相关专家推荐
-                    div.panel-content one
+                include search/expert-list
 
         else if typeNum == 4
+            // 搜索专家，没有相关推荐
             div.panel
                 div.panel-title 专家搜索
                 div.panel-content

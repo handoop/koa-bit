@@ -11,7 +11,7 @@ var config = {
     //端口号配置
     "port": 3000,
     //PRC-IP地址
-    "PRC_IP": "172.16.13.120",
+    "PRC_IP": "172.16.8.97",
     //模板所在的目录
     "viewDir": path.join(__dirname,'..','views'),
     //log所在的目录

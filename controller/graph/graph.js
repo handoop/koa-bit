@@ -9,18 +9,27 @@ connection.on('error', function(err){
 });
 
 module.exports = {
-    // 获取信息拓扑图数据
-    graph: function *(){
+    // 获取知识拓扑图数据
+    getGraph: function *(){
         var query = this.request.body;
         // keywords，图的关键字和数据深度
         var keywords = query.keyword;
         var depth = query.depth;
+        var type = query.type;
 
         if(!keywords) return this.body =  {nodes: [], links: [], error: "没有关键字"};
 
         var graphService = thrift.createClient(GraphService, connection);
-        console.warn("向数据端请求图像数据：%s, 深度为：%s", keywords, depth);
-        var graphData = yield graphService.getKnowledgeUndirectedGraph(keywords, depth);
+        console.warn("向数据端请求拓扑数据：%s, 深度为：%s", keywords, depth);
+
+        var graphData = null;
+        switch(type){
+            case 1:
+                graphData = yield graphService.getKnowledgeUndirectedGraph(keywords, depth);
+                break;
+            case 2:
+                graphData = yield graphService.getExpertUndirectedGraph(keywords, depth);
+        }
 
         this.body = graphData;
     }

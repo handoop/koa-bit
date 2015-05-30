@@ -1,6 +1,11 @@
 .histogram rect {
     fill: steelblue;
     shape-rendering: crispEdges;
+    transition: all 0.3s;
+
+    &:hover{
+        fill: darken(steelblue, 20%);
+    }
 }
 
 .axis path, .axis line {

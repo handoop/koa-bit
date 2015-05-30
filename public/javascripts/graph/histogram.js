@@ -3,13 +3,10 @@
  */
 define(["d3"], function (d3) {
     var data = [
-        {year: 2011, count: 4},
-        {year: 2012, count: 6},
-        {year: 2014, count: 5},
-        {year: 2015, count: 6},
-        {year: 2017, count: 5},
-        {year: 2018, count: 6},
-        {year: 2019, count: 5}];
+        {year: 2009, count: 3},
+        {year: 2010, count: 1},
+        {year: 2012, count: 2},
+        {year: 2014, count: 1}];
 
     var years = data.map(function(item){return item.year});
     var values = data.map(function(item){return item.count});
@@ -61,7 +58,13 @@ define(["d3"], function (d3) {
             .attr("width", function () {
                 return xScale.rangeBand();
             })
-            .attr("height", yScale);
+            .attr("height", yScale)
+            .transition()
+            .duration(1000)
+            .ease("bounce")
+            .delay(function(d, i){
+                return 200 * i;
+            });
 
         svg.selectAll("text")
             .data(values)

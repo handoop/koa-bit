@@ -16,28 +16,7 @@ block content
                     - var keywords = article.keywords ? article.keywords.split(";") : [];
                     for keyword in keywords
                         a(href="/records?qs=#{keyword}") #{keyword}
-        //专家信息
-        div.panel.pull-right.expert.sidebar
-            div.panel-title 专家信息
-            div.panel-content
-                div.img.text-center
-                    a(href="/expert/210")
-                        img(alt="学者图", width=100, height=100)
-                h1.text-center
-                    a(href="/expert/210") #{article.authors}
-                hr
-                div 研究单位：#{article.institution}
-                div 研究方向：大数据
-                hr
-                ul.expert-data.clearfix
-                    li 成果数:
-                        a 13
-                    li H指数:
-                        a 4
-                    li 关注数:
-                        a 32
-                    li 引用数:
-                        a #{article.numOfBeRefer}
+
 
 
 

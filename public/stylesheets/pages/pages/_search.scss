@@ -81,6 +81,23 @@
         color: #333;
     }
 }
+
+.expert-list{
+    li{
+        margin: 10px 0;
+        padding: 10px 0;
+        border-bottom: 1px dotted #ccc;
+    }
+    .info{
+        margin-left: 15px;
+        width: 160px;
+    }
+
+    .panel-content{
+        padding-top: 1px;
+    }
+}
+
 .tag-list{
     padding: 0 10px;
     border-left: 1px solid #efefef;

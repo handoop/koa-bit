@@ -5,7 +5,7 @@ define(["d3"], function (d3) {
     var width = 698;
     var height = 398;
 
-    return function (url, query, cb) {
+    return function (url, query, option) {
         d3.xhr(url)
             .header("Content-Type", "application/json")
             .post(JSON.stringify(query), function (err, xhr) {
@@ -19,16 +19,12 @@ define(["d3"], function (d3) {
                 var links = data.links;
                 if (data.nodes.length <= 1) return false;
 
-                // 执行加载完后的回调
-                cb && cb();
-
-
                 var svg = d3.select(".force-graph").append("svg")
                     .attr("width", width)
                     .attr("height", height);
                 svg.append("text")
                     .attr('class', 'tips')
-                    .text("双击关键字即可检索")
+                    .text("可以双击节点文字")
                     .attr('dy', 15);
 
                 // 定义力学图，并传入点和线的数据进行数据转化
@@ -85,16 +81,20 @@ define(["d3"], function (d3) {
                     })
                     .call(force.drag);
 
-                textNodes.on("dblclick", function (d, i) {
-                    if (i > 0) {
-                        location.search = "?qs=" + d.name;
-                    }
-                });
+                if(option && option.dblclick){
+                    textNodes.on("dblclick", function (d, i) {
+                        if (i > 0) {
+                            option.dblclick(d, i);
+                        }
+                    });
+                }
 
                 // 取第一个节点进行高亮
                 textNodes.node().style.fill = "#E8433D";
                 textNodes.node().style.fontWeight = 600;
 
+                // 执行加载完后的回调
+                option && option.success && option.success();
 
                 // 动态渲染
                 force.start()

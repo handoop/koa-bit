@@ -22,13 +22,21 @@ module.exports = {
         var id = parseInt(this.params.id);
         // 调用PRC接口，获取数据
         console.warn("向数据端获取专家数据，id号：%s", id);
-        var expertInfo = yield queryService.getExpertDetail(id, parseINt(pageNum));
-        console.log(expertInfo);
+        var data = yield queryService.getExpertDetail(id, parseInt(pageNum));
+
+        // 打印数据
+        console.log("----------获得专家数据----------");
+        console.log(data);
+        console.log("------------------------------");
+        // 专家数据
+        data = JSON.parse(data);
 
         return yield this.render('expertInfo', {
             title: "专家详情",
             pathname: this.path,
-            expertInfo: JSON.parse(expertInfo)
+            expertInfo: data.expert,
+            recordData: data.Page,
+            id: id
         });
     }
 };

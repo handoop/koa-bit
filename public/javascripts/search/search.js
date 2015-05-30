@@ -35,14 +35,20 @@ require(['jquery', 'graph/graph'], function ($, graph) {
 
         // 获取querystring
         var keyword = $("input[name=qs]")[0].value;
-        var depth = 0;
+        var depth = 1;
         var query = {
             keyword: keyword,
-            depth: depth || 1
+            depth: depth,
+            type: 1 //知识图谱
         }
         // 开始加载知识图谱
-        graph.getForce("/search/graph", query, function(){
-            $(".graph").slideDown("slow");
+        graph.getForce("/search/graph", query, {
+            success: function(){
+                $(".graph").slideDown("slow");
+            },
+            dblclick: function(d, i){
+                location.search = "?qs=" + d.name;
+            }
         });
     }
 

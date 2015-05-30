@@ -4,7 +4,7 @@ ul.search-list
     each record in recordData.recordList
         li
             h1.title
-                a(href="/article/#{type}/#{record.id}") !{record.title}
+                a(href="/article/#{typeNum}/#{record.id}") !{record.title}
             div.author 作者：!{record.authors}
             p.summary !{record.summary}
 

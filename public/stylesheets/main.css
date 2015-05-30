@@ -217,6 +217,9 @@ hr {
 p {
   line-height: 120%; }
 
+body {
+  height: 100%; }
+
 body, html {
   background: #EDEBED; }
 
@@ -402,7 +405,7 @@ header {
   .panel .panel-title:after {
     padding: 37px 3px 0 0; } }
   .panel .panel-content {
-    padding: 20px 15px;
+    padding: 20px 25px;
     box-shadow: 0 10px 10px #666;
     background: #fff; }
 
@@ -472,7 +475,10 @@ header {
 
 .histogram rect, #analysis .pie rect {
   fill: steelblue;
-  shape-rendering: crispEdges; }
+  shape-rendering: crispEdges;
+  transition: all 0.3s; }
+  .histogram rect:hover, #analysis .pie rect:hover {
+    fill: #294d6b; }
 
 .axis path, .axis line {
   fill: none;
@@ -550,6 +556,16 @@ header {
     padding: 10px 0;
     color: #333; }
 
+.expert-list li {
+  margin: 10px 0;
+  padding: 10px 0;
+  border-bottom: 1px dotted #ccc; }
+.expert-list .info {
+  margin-left: 15px;
+  width: 160px; }
+.expert-list .panel-content {
+  padding-top: 1px; }
+
 .tag-list {
   padding: 0 10px;
   border-left: 1px solid #efefef; }
@@ -591,16 +607,14 @@ header {
   width: 50%;
   margin: 10px 0; }
 
-#achievement {
-  padding-left: 20px; }
-  #achievement li {
-    margin: 20px 0; }
-    #achievement li output {
-      color: #333; }
-  #achievement .author, #achievement .source {
-    margin: 5px 0;
-    font-size: 14px;
-    color: #aaa; }
+#achievement li {
+  margin: 40px 0; }
+  #achievement li output {
+    color: #333; }
+#achievement .author, #achievement .source {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #aaa; }
 
 #analysis hr {
   border-top: 3px dotted #999; }
@@ -615,10 +629,15 @@ header {
   font-size: 12px;
   border: 1px solid #000; }
   #analysis table td {
-    padding: 5px 10px; }
+    padding: 5px 10px;
+    width: 300px; }
+    #analysis table td.score {
+      color: #E8433D; }
 #analysis .histogram, #analysis .pie {
   min-height: 350px;
   margin: 20px;
   border: 1px solid #dfdfdf; }
+  #analysis .histogram svg, #analysis .pie svg {
+    display: block; }
 
 /*# sourceMappingURL=main.css.map */

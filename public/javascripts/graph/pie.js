@@ -3,14 +3,17 @@
  */
 define(['d3'], function (d3) {
     var width = 700, height = 350;
+    var pie = d3.select(".pie");
+    if(!pie[0][0]) return false;
+    var pieData = JSON.parse(pie.attr("data-pieData"));
     var data = [
         {
             name: "期刊",
-            value: 3
+            value: pieData.ma
         },
         {
             name: "论文",
-            value: 2
+            value: pieData.th
         }
     ];
 

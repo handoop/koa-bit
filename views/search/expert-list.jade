@@ -1,0 +1,17 @@
+div.panel.sidebar.expert-list
+    div.panel-title 相关专家推荐
+    div.panel-content
+        ul
+            if experts.length > 0
+                for expert in experts
+                    li.clearfix
+                        div.pull-left
+                            img(src="#{expert.image}", alt="学者图", width=30, height=30)
+                        div.pull-left.info
+                            div
+                                a(href="/expert/#{expert.id}") #{expert.name}
+                            div 机构：
+                                span.text-muted #{expert.institution}
+            else
+                li 暂无推荐专家
+

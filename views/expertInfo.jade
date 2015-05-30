@@ -8,10 +8,12 @@ block content
             div.panel-title 专家信息
             div.panel-content
                 div.img.text-center
-                    a(href="/expert/210")
-                        img(alt="学者图", width=100, height=100)
+                    a(href="/expert/#{expertInfo.id}")
+                        img(src="#{expertInfo.image}", alt="学者图", width=100, height=100)
                 h1.text-center
-                    a(href="/expert/210") #{expertInfo.name}
+                    - var score = expertInfo.evaluation.score.toFixed(1);
+                    a#expert(href="/expert/210") #{expertInfo.name}
+                    span.highlight &emsp;#{score}
                 hr
                 div 研究单位：#{expertInfo.institution}
                 div 研究方向：#{expertInfo.field}
@@ -21,8 +23,6 @@ block content
                         span #{expertInfo.evaluation.num_result}
                     li H指数:
                         span #{expertInfo.evaluation.num_h}
-                    li 关注数:
-                        span 32
                     li 被引用数:
                         span #{expertInfo.evaluation.num_related}
         // 专家详情
@@ -39,7 +39,10 @@ block content
 
                 div.switchContent
                     div#achievement
-                        include expert/achievement
+                        if recordData.recordList.length > 0
+                            include expert/achievement
+                        else
+                            div 该专家暂时没有成果
                     div#analysis
                         include expert/analysis
                     div#relationship

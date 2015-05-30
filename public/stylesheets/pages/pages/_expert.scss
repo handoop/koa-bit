@@ -1,8 +1,7 @@
 // 学者成果
 #achievement{
-    padding-left: 20px;
     li{
-        margin: 20px 0;
+        margin: 40px 0;
 
         output{
             color: #333;
@@ -35,12 +34,21 @@
 
         td{
             padding: 5px 10px;
+            width: 300px;
+
+            &.score{
+                color: $text-highlight;
+            }
         }
     }
     .histogram{
         min-height: 350px;
         margin: 20px;
         border: 1px solid #dfdfdf;
+
+        svg{
+            display: block;
+        }
     }
     .pie{
         @extend .histogram
