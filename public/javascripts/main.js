@@ -13,6 +13,7 @@ define(['jquery', 'search/search', 'expert/expert'], function($){
 
     if((bodyHeight - $footer.height()) < clientHeight){
         $footer.addClass("fixed-footer");
+        $('body').css("paddingBottom", "30px");
     }
     $footer.slideDown();
 

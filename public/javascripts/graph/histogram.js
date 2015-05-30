@@ -2,18 +2,14 @@
  * Created by YikaJ on 15/5/26.
  */
 define(["d3"], function (d3) {
-    var data = [
-        {year: 2009, count: 3},
-        {year: 2010, count: 1},
-        {year: 2012, count: 2},
-        {year: 2014, count: 1}];
 
-    var years = data.map(function(item){return item.year});
-    var values = data.map(function(item){return item.count});
+
     var width = 700, height = 350;
 
 
-    return function (el) {
+    return function (el, data) {
+        var years = data.map(function(item){return item.year});
+        var values = data.map(function(item){return item.value});
         // 插入svg
         var svg = d3.select(el)
             .append("svg")
@@ -33,9 +29,9 @@ define(["d3"], function (d3) {
             .scale(xAxisScale)
             .orient("bottom");
         var yAxis = d3.svg.axis()
-            .ticks(d3.max(values))
             .scale(yAxisScale)
-            .orient("left");
+            .orient("left")
+            .ticks(5);
 
         // 数据比例尺
         var xScale = d3.scale.ordinal()
@@ -58,13 +54,7 @@ define(["d3"], function (d3) {
             .attr("width", function () {
                 return xScale.rangeBand();
             })
-            .attr("height", yScale)
-            .transition()
-            .duration(1000)
-            .ease("bounce")
-            .delay(function(d, i){
-                return 200 * i;
-            });
+            .attr("height", yScale);
 
         svg.selectAll("text")
             .data(values)

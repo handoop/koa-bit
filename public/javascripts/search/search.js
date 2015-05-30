@@ -35,7 +35,7 @@ require(['jquery', 'graph/graph'], function ($, graph) {
 
         // 获取querystring
         var keyword = $("input[name=qs]")[0].value;
-        var depth = 1;
+        var depth = 2;
         var query = {
             keyword: keyword,
             depth: depth,

@@ -8,7 +8,8 @@ block content
                 h1.title.text-center #{article.title}
                 div.detail.text-muted.text-center
                     span 作者：#{article.authors}
-                    span 导师：#{article.tutors}
+                    if type == 2
+                        span 导师：#{article.tutors}
                     span 学术机构：#{article.institution}
                 p.content #{article.summary}
                 div.keywords 关键字:
