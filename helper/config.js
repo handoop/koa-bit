@@ -10,8 +10,11 @@ var config = {
     "appName": "koa-bit",
     //端口号配置
     "port": 3000,
+    //"host": "172.16.8.155",
     //PRC-IP地址
-    "PRC_IP": "172.16.8.97",
+    "RPC_IP": "localhost",
+    //port of rpc
+    "RPC_PORT" : 9090,
     //模板所在的目录
     "viewDir": path.join(__dirname,'..','views'),
     //log所在的目录

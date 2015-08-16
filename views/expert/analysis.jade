@@ -1,28 +1,34 @@
-h1.text-center #{expertInfo.name}的学术影响力分析
-h2 一、总体影响力分析
+h1.text-center #{details.name}的学术影响力分析
+h2 总体影响力分析
+hr
 table(border=1)
     thead
-        td h指数
-        td 学术成果总数
+        td H指数
+        td 论文数
+        td 期刊数
+        td 专利数
+        td 成果产业化
         td 被引用数
         td 评分
     tbody
         tr
-            td #{expertInfo.evaluation.num_h}
-            td #{expertInfo.evaluation.num_result}
-            td #{expertInfo.evaluation.num_related}
+            td #{details.evaluation.num_h}
+            td #{details.evaluation.num_th}
+            td #{details.evaluation.num_ma}
+            td #{details.evaluation.num_patent}
+            td #{details.evaluation.num_product}
+            td #{details.evaluation.num_related}
             td.score #{score}
 
-h4 发文数量年度分布图
+h2 发文数量年度分布图
 hr
 div.histogram#articleYearCount
 
-h4 成果产出统计
+h2 成果产出统计
 hr
-div.pie(data-pieData={th: "#{expertInfo.evaluation.num_th}", ma: "#{expertInfo.evaluation.num_ma}"})
+div.pie(data-pieData={th: "#{details.evaluation.num_th}", ma: "#{details.evaluation.num_ma}"})
 
-h2 二、被引用情况分析
-h4 被引频次年度分布图
+h2 被引频次年度分布图
 hr
 div.histogram#blockquoteYearCount
 

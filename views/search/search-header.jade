@@ -11,9 +11,9 @@ div.search-header
     div
         div.container
             form(action='/records', method='get')
-                +activeLabel({name: "论文", value: 2})
-                +activeLabel({name: "期刊", value: 3})
+                +activeLabel({name: "论文", value: 0})
+                +activeLabel({name: "期刊", value: 1})
                 +activeLabel({name: "专家", value: 4})
-                input.input(name="qs", value="#{qs}", type="search",
-                autocomplete="off", placeholder="查询您需要的科技文献")
+                - var placeholder = typeNum == 4 ? '可以通过name:专家名 institution:机构 field:主题 操作来查询专家' : '查询您需要的科技文献'
+                input.input(name="qs", value="#{qs}", type="search", autocomplete="off", placeholder="#{placeholder}")
                 button.btn.btn-primary(type="submit") 搜索

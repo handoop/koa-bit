@@ -2,8 +2,8 @@ extends public/layout
 block content
     div.container.clearfix
         //文章详情
-        div.panel.pull-left
-            div.panel-title 文章详情
+        div.panel-left.pull-left
+            div.panel-title 文章摘要
             div.panel-content.article
                 h1.title.text-center #{article.title}
                 div.detail.text-muted.text-center
@@ -11,16 +11,54 @@ block content
                     if type == 2
                         span 导师：#{article.tutors}
                     span 学术机构：#{article.institution}
-                p.content #{article.summary}
+                    span 被引用次数：#{article.numOfBeRefer ? 0 : article.numOfBeRefer}
+                p.content #{article.summary + '......'} <a href="#" class="another-link">来自>> 中国知网</a>
                 div.keywords 关键字:
                     //- 把关键字字符串转化成数组
                     - var keywords = article.keywords ? article.keywords.split(";") : [];
                     for keyword in keywords
                         a(href="/records?qs=#{keyword}") #{keyword}
 
+        //显示作者
+        div.panel-right.pull-left
+            div.panel-title 作者
+            if authors.length == 0
+                div.text-center 这篇文章的作者一个都没有收录～
+            else
+                div.text-center
+                    each author in authors
+                        a(href='/expert/#{author.id}')
+                            img(src='#{author.image}' alt='#{author.name}' width=70 height=70)
+                        a.black_link(href='/expert/#{author.id}')
+                            h4 #{author.name}
+                        br
 
+    div.container.clearfix
+        //显示相关论文
+        div.panel-right.pull-left
+            div.panel-title 相关论文
+            if thesises.length == 0
+                div.text-center 没有相关论文～
+            else
+                each thesis in thesises
+                    p.space
+                        a(href='/article/0/#{thesis.id}' target='_blank') #{thesis.title} &nbsp;&nbsp; [作者] #{thesis.authors}
 
-
+    div.container.clearfix
+        div.panel-left.pull-left
+            div.panel-title 相关期刊
+            if magazines.length == 0
+                div.text-center 没有相关论文～
+            else
+                each magazine in magazines
+                    p.space
+                        a(href='/article/1/#{magazine.id}' target='_blank') #{magazine.title} &nbsp;&nbsp; [作者] #{magazine.authors}
+    br
+    br
+    br
+    br
+    br
+    br
 
 
 

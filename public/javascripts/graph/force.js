@@ -12,19 +12,41 @@ define(["d3"], function (d3) {
                 if (err) return console.error(err);
                 var data = JSON.parse(xhr.response);
 
-                if (typeof data.nodes === "undefined") return false;
+                width = option.width || width
+                height = option.height || height
+
+                console.log('---------response data----------')
+                console.log(data)
+
+                //显示名词解释
+                data.knowledge && option && option.showKnowledge && option.showKnowledge(data.knowledge)
+
+                if (typeof data.nodes === "undefined"){
+                    d3.select('#showInfo').append('text').text('这个专家关系比较紧张～')
+                    return false
+                }
 
                 // 节点与线条的数据
                 var nodes = data.nodes;
                 var links = data.links;
-                if (data.nodes.length <= 1) return false;
+
+                var maxLinkWeight = 0;
+                for(var i in links){
+                    if(links[i].weight>maxLinkWeight)
+                        maxLinkWeight = links[i].weight
+                }
+
+                if (data.nodes.length <= 1){
+                    d3.select('#showInfo').append('text').text('这个专家关系比较紧张～')
+                    return false;
+                }
 
                 var svg = d3.select(".force-graph").append("svg")
                     .attr("width", width)
                     .attr("height", height);
                 svg.append("text")
                     .attr('class', 'tips')
-                    .text("可以双击节点文字")
+                    .text(option.title || "双击节点检索相关知识")
                     .attr('dy', 15);
 
                 // 定义力学图，并传入点和线的数据进行数据转化
@@ -43,10 +65,14 @@ define(["d3"], function (d3) {
                     return b.weight - a.weight;
                 });
 
+                console.log('------the max weight is %s-----', maxLinkWeight)
+
                 // 继续定义力学图的线条距离与线条的磁性
                 force.linkDistance(function (d, i) {
-                    return 50 + 20 * i;
-                }).charge(-1000);
+                    var distance = maxLinkWeight/(d.weight ? d.weight : 10) + 10
+                    distance = distance > 30 ? 30 : distance
+                    return distance
+                }).charge(-1500);
 
 
                 // 将线条描绘出来
@@ -63,12 +89,18 @@ define(["d3"], function (d3) {
                     .append("circle")
                     .attr('class', 'node')
                     .attr("r", function (d, i) {
-                        if (i <= 2) return 20;
-                        else return 10;
+                        return d.weight ? 20 / (1 + 10/Math.sqrt(d.weight)) : 5;
                     })
                     .attr('class', function (d, i) {
-                        if (i <= 2) return "node lg-node";
-                        else return "node sm-node";
+                        var weight = d.weight ? 20 / (1 + 10/Math.sqrt(d.weight)) : 5;
+                        if(weight<=5)
+                            return 'node sm-node'
+                        if(weight>5 && weight<=10)
+                            return 'node md-node'
+                        if(weight>10 && weight<15)
+                            return 'node mm-node'
+                        else
+                            return "node lg-node";
                     })
                     .call(force.drag);
 
@@ -90,7 +122,6 @@ define(["d3"], function (d3) {
                 }
 
                 // 取第一个节点进行高亮
-                textNodes.node().style.fill = "#E8433D";
                 textNodes.node().style.fontWeight = 600;
 
                 // 执行加载完后的回调

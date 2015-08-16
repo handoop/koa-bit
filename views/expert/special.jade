@@ -1,0 +1,12 @@
+//
+//   Created by thanatos on 15-8-13.
+//
+h1.text-center #{details.name}研究的领域
+div.panel-content
+    each knowledge in knowledges
+        if knowledge.name && knowledge.description && knowledge.come_from_url
+            h2.knowledge-name
+                a(href='#{knowledge.come_from_url}') !{knowledge.name}
+            p.knowledge-description !{knowledge.description}
+            p
+                a.come-from(href='#{knowledge.come_from_url}') !{'来自>>   '+knowledge.come_from}

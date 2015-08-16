@@ -1,5 +1,13 @@
 //
    Created by YikaJ on 15/5/24.
+mixin activeFlag(f, content)
+    if flag == f
+        li.active
+            a(data-targetId=f, href="javascript:") #{content}
+    else
+        li
+            a(data-targetId=f, href="javascript:") #{content}
+
 extends public/layout
 block content
     div.container.clearfix
@@ -8,41 +16,51 @@ block content
             div.panel-title 专家信息
             div.panel-content
                 div.img.text-center
-                    a(href="/expert/#{expertInfo.id}")
-                        img(src="#{expertInfo.image}", alt="学者图", width=100, height=100)
+                    a(href="/expert/#{details.id}")
+                        img(src="#{details.image}", alt="学者图", width=100, height=100)
                 h1.text-center
-                    - var score = expertInfo.evaluation.score.toFixed(1);
-                    a#expert(href="/expert/210") #{expertInfo.name}
-                    span.highlight &emsp;#{score}
+                    a#expert(href="/expert/#{details.id}") #{details.name}
+                h1.highlight.text-center #{score}
                 hr
-                div 研究单位：#{expertInfo.institution}
-                div 研究方向：#{expertInfo.field}
-                hr
-                ul.expert-data.clearfix
-                    li 成果数:
-                        span #{expertInfo.evaluation.num_result}
-                    li H指数:
-                        span #{expertInfo.evaluation.num_h}
-                    li 被引用数:
-                        span #{expertInfo.evaluation.num_related}
+                div.text-center
+                    button#appendVirtualRobot.btn.btn-primary(data-id='#{details.id}') +虚拟专家服务
         // 专家详情
-        div.panel.pull-right
+        div.panel-expert.pull-right
             div.panel-title 专家详情
             div.panel-content
                 ul.switchTab.clearfix
-                    li.active
-                        a(data-targetId="achievement", href="javascript:") 学术成果
-                    li
-                        a(data-targetId="analysis", href="javascript:") 学术影响力分析
-                    li
-                        a(data-targetId="relationship", href="javascript:") 专家关系图谱
-
+                    +activeFlag('baseInfo', '基本信息')
+                    +activeFlag('special', '专业信息')
+                    +activeFlag('achievement', '学术成果')
+                    +activeFlag('science', '科研成果')
+                    +activeFlag('team', '研发团队')
+                    +activeFlag('opinion', '学术观点')
+                    +activeFlag('analysis', '学术影响力分析')
+                    +activeFlag('relationship', '专家关系图谱')
                 div.switchContent
+                    div#baseInfo
+                        include expert/baseInfo
                     div#achievement
-                        if recordData.recordList.length > 0
+                        if page.recordList.length > 0
                             include expert/achievement
                         else
-                            div 该专家暂时没有成果
+                            div.text-center 该专家暂时没有成果
+                    div#special
+                        if knowledges.length > 0
+                            include expert/special
+                        else
+                            div.text-center 该专家的领域有点怪异～
+                    div#science
+                        div.text-center 该专家的没什么科研成果～
+                        //include expert/science
+                    div#team
+                        div.text-center 该专家喜欢单打独斗～
+                        //include expert/team
+                    div#opinion
+                        if tweets.recordList.length > 0
+                            include expert/opinion
+                        else
+                            div.text-center 该专家很保守～
                     div#analysis
                         include expert/analysis
                     div#relationship

@@ -15,11 +15,15 @@
 }
 
 // 学者分析
-#analysis{
+#special, #analysis{
     hr{
-        border-top: 3px dotted #999;
+        border-top: 1px solid #d6d6d6;
+    }
+    h1{
+        padding: 20px 0;
     }
     h2{
+        padding: 10px 0;
         color: $text-highlight
     }
     h4{

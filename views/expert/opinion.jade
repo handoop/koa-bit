@@ -1,0 +1,28 @@
+//
+//   Created by thanatos on 15-8-13.
+//
+ul.search-list
+    div.text-muted 成果共有#{tweets.recordCount}条
+    for record in tweets.recordList
+        li
+            p #{record.date}
+            p.summary #{record.content}
+            p
+                - var come_from_url = record.url.substr(0, 50)
+                a.come-from(href=record.url) 来自>> #{come_from_url+'......'}
+//activeLi，判断分页是否需要高亮
+mixin activeLi(index)
+    if tweets.currentPage == index
+        li.active
+            a(href="/expert/#{id}?pn=#{index}&flag=opinion") #{index}
+    else
+        li
+            a(href="/expert/#{id}?pn=#{index}&flag=opinion") #{index}
+ul.paging.clearfix
+    li
+        a(href="/expert/#{id}?pn=1&flag=opinion") <<
+    - for(var i = tweets.beginIndex; i <= tweets.endIndex; i++){
+        +activeLi(i)
+    - }
+    li
+        a(href="/expert/#{id}?pn=#{tweets.pageCount}&flag=opinion") >>

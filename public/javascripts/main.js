@@ -5,16 +5,19 @@ require.config({
     }
 });
 
-define(['jquery', 'search/search', 'expert/expert'], function($){
-    // 处理 footer
-    var bodyHeight = $('body').height();
-    var clientHeight = $(window).height();
-    var $footer = $(".footer");
+define(['jquery', 'search/search', 'expert/expert'], function ($) {
 
-    if((bodyHeight - $footer.height()) < clientHeight){
-        $footer.addClass("fixed-footer");
-        $('body').css("paddingBottom", "30px");
-    }
-    $footer.slideDown();
+    console.log('-----------loading main-----------')
+
+    // 处理 footer
+    /*  var bodyHeight = $('body').height();
+     var clientHeight = $(window).height();
+     var $footer = $(".footer");
+
+     if((bodyHeight - $footer.height()) < clientHeight){
+     $footer.addClass("fixed-footer");
+     $('body').css("paddingBottom", "30px");
+     }
+     $footer.slideDown();*/
 
 });

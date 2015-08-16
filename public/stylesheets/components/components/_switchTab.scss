@@ -1,18 +1,15 @@
 .switchTab{
     margin: 10px 0 20px;
+    border-bottom: 1px solid #cccccc;
     li{
         float: left;
-        padding: 5px 10px;
-        border-bottom: 1px solid #dfdfdf;
-        &:not(:last-of-type){
-            border-right: 1px solid #ccc;
-        }
-        background: #dfdfdf;
+        padding: 10px 15px;
 
         &.active{
-            border-bottom: 1px solid #ccc;
-            background: #fff;
-            box-shadow: 0 1px 2px #000;
+            border-bottom: 1px solid #EDEBED;
+            margin-bottom: -1px;
+            border-left: 1px solid #CCCCCC;
+            border-right: 1px solid #CCCCCC;
         }
 
         a{

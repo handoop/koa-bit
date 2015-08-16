@@ -1,5 +1,5 @@
 .force-graph{
-    min-height: 400px;
+    min-height: 300px;
     transition: all 0.3s;
     /*
      *SVG相关
@@ -11,14 +11,20 @@
 
     // node节点
     .node{
-        stroke: #333;
-        stroke-width: 1px;
+        //stroke: #333;
+        //stroke-width: 1px;
     }
     .sm-node{
-        fill: transparent;
+        fill: #dea578;
     }
     .lg-node{
-        fill: #A2A08C;
+        fill: #c9646a;
+    }
+    .md-node{
+        fill: #68a9d6;
+    }
+    .mm-node{
+        fill: #7274d6;
     }
 
     // 文字

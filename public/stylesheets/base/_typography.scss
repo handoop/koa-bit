@@ -8,3 +8,65 @@ body,html{
   @include center-block;
 }
 
+.weight-1, .weight-2, .weight-3, .weight-4, .weight-5, .weight-6, .weight-7, .weight-8, .weight-9, .weight-10, .weight-11, .weight-12 {
+    min-height: 1px;
+    display: inline-block;
+}
+.weight-12 {
+    width: 100%;
+}
+.weight-11 {
+    width: 91.66666667%;
+}
+.weight-10 {
+    width: 83.33333333%;
+}
+.weight-9 {
+    width: 75%;
+}
+.weight-8 {
+    width: 66.66666667%;
+}
+.weight-7 {
+    width: 58.33333333%;
+}
+.weight-6 {
+    width: 50%;
+}
+.weight-5 {
+    width: 41.66666667%;
+}
+.weight-4 {
+    width: 33.33333333%;
+}
+.weight-3 {
+    width: 25%;
+}
+.weight-2 {
+    width: 16.66666667%;
+}
+.weight-1 {
+    width: 8.33333333%;
+}
+.single-info{
+    padding: 5px 0;
+
+    &:before{
+        display: table;
+        content: "";
+        clear: both;
+    }
+    &:after{
+        display: table;
+        content: "";
+    }
+}
+a.another-link{
+    float: right;
+    font-size: 11px;
+    font-style: italic;
+    padding-top: 5px;
+}
+a.black_link{
+    color: #666;
+}

@@ -2,31 +2,39 @@ extends public/layout
 block content
     include search/search-header
     div.container.clearfix
-        if typeNum == 2 || typeNum == 3
-            div.pull-left
-                //知识图谱
-                if queryNum == 1
-                    div.panel.graph
-                        div.panel-title 知识图谱
-                        div.panel-content.force-graph
-                //网页搜索
-                div.panel
-                    div.panel-title 网页搜索
+        if typeNum == 0 || typeNum == 1
+            div.panel-left.pull-left
+                div.panel-content
+                    if page.recordCount > 0
+                        include search/search-list
+                    else
+                      span 很抱歉，没有找到与“#{qs}”相关的网页。请确认输入是否正确。
+            if queryNum == 1
+                div.panel-right.pull-left
                     div.panel-content
-                        if recordData.recordCount > 0
-                            include search/search-list
-                        else
-                          span 很抱歉，没有找到与“#{qs}”相关的网页。请确认输入是否正确。
-            // 专家推荐
-            div.pull-right
-                include search/expert-list
+                        //名词解释
+                        div.explanation
+                            div.panel-title 名词科普
+                            h2.knowledge-name
+                                a
+                            p.knowledge-description
+                            p
+                                a.come-from
+                        //知识图谱
+                        div.graph
+                            div.panel-title 相关知识
+                                a.another-link(href='/graphic/show?depth=2&type=1&keyword=#{qs}', target='_blank') 快去看看更高深度的知识图谱吧>>
+                            div.force-graph
+                        //相关人物
+                        div.person
+                            div.panel-title 推荐专家
 
         else if typeNum == 4
             // 搜索专家，没有相关推荐
             div.panel
                 div.panel-title 专家搜索
                 div.panel-content
-                    if recordData.recordCount > 0
+                    if page.recordCount > 0
                         include search/search-expert
                     else
                         span 很抱歉，没有找到与“#{qs}”相关的信息。请确认输入是否正确。

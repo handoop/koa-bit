@@ -1,11 +1,13 @@
 ul.search-list
     div.tips.text-muted 比特能检索为您找到相关结果约
         i #{recordCount} 个
-    each record in recordData.recordList
+    each record in page.recordList
+        - var summary = record.summary.length>300 ? record.summary.substr(0, 300) : record.summary
         li
             h1.title
                 a(href="/article/#{typeNum}/#{record.id}") !{record.title}
-            div.author 作者：!{record.authors}
-            p.summary !{record.summary}
+            div.author 作者：
+                a(href='/records?qs=#{record.authors}&type=4') !{record.authors}
+            p.summary !{record.summary + '...'}
 
 include paging

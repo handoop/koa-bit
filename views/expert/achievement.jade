@@ -1,28 +1,28 @@
 ul.search-list
-    div.text-muted 成果共有#{expertInfo.evaluation.num_result}条
+    div.text-muted 成果共有#{details.evaluation.num_result}条
 
-    for record in recordData.recordList
+    for record in page.recordList
         li
             h1
-                - var type = record.type == 0 ? 3 : 2;
-                a(href="/article/#{type}/#{record.id}") !{record.title}
+                a(href="/article/#{record.type}/#{record.id}") !{record.title}
             div.author 作者：#{record.authors}
-            p.summary #{record.summary}
+            - var summary = record.summary.length>300 ? record.summary.substr(0, 300) + '...' : record.summary
+            p.summary #{summary}
 
 
 //activeLi，判断分页是否需要高亮
 mixin activeLi(index)
-    if recordData.currentPage == index
+    if page.currentPage == index
         li.active
-            a(href="/expert/#{id}?pn=#{index}") #{index}
+            a(href="/expert/#{id}?pn=#{index}&flag=achievement") #{index}
     else
         li
-            a(href="/expert/#{id}?pn=#{index}") #{index}
+            a(href="/expert/#{id}?pn=#{index}&flag=achievement") #{index}
 ul.paging.clearfix
     li
-        a(href="/expert/#{id}?pn=1") <<
-    - for(var i = recordData.beginIndex; i <= recordData.endIndex; i++){
+        a(href="/expert/#{id}?pn=1&flag=achievement") <<
+    - for(var i = page.beginIndex; i <= page.endIndex; i++){
         +activeLi(i)
     - }
     li
-        a(href="/expert/#{id}?pn=#{recordData.pageCount}") >>
+        a(href="/expert/#{id}?pn=#{page.pageCount}&flag=achievement") >>

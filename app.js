@@ -1,3 +1,4 @@
+
 var debug = require('debug')('koa-bit');
 var koa = require('koa');
 var app = koa();
@@ -34,6 +35,8 @@ app.use(function* (next) {
 // session
 var session = require('koa-session');
 app.use(session(app));
+
+app.keys = ['secret', 'Thanatos-Victoria'];
 
 // 模板引擎
 var render = require('koa-views');

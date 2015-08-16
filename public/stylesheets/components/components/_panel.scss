@@ -1,5 +1,4 @@
 .panel{
-    width: 720px;
     margin: 15px 0;
 
     .panel-title{
@@ -25,7 +24,111 @@
     }
     .panel-content{
         padding: 20px 25px;
-        box-shadow: 0 10px 10px #666;
-        background: #fff;
+    }
+    p.space{
+        padding: 5px 0;
+
+        a{
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+        }
+    }
+}
+
+.panel-left{
+    @extend .panel;
+    width: 700px;
+}
+.panel-right{
+    @extend .panel;
+    width: 500px;
+    
+    .person{
+        display: none;
+    }
+}
+.panel-expert{
+    @extend .panel;
+    width: 940px;
+}
+.panel-virtual{
+    width: 900px;
+    display: inline-block;
+    margin: 20px auto 10px auto;
+    padding: 20px 0;
+
+    .panel-robots{
+        width: 20%;
+        height: 700px;
+        float: left;
+
+        .robot{
+            padding: 10px;
+        }
+        h4{
+            padding: 5px 0;
+        }
+        .field{
+            display: inline-block;
+            height: 30px;
+            padding: 0 5px;
+            font-size: 9px;
+            line-height: 30px;
+            background: #ffffff;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            border-radius: 15px;
+        }
+        .img{
+            display: inline-block;
+            position: relative;
+        }
+        .img-delete{
+            display: none;
+            position: absolute;
+            cursor: pointer;
+            bottom: 0;
+            right: 0;
+        }
+    }
+
+    .panel-talk{
+        float: left;
+        width: 75%;
+        display: inline-block;
+        padding: 0 10px;
+        height: 650px;
+        position: relative;
+        overflow: scroll;
+        border: 1px solid #DAD6D6;
+
+        div{
+            padding: 7px 0;
+            color: #2f2f2f;
+            .sentence{
+                display: inline-block;
+                background: #ffffff;
+                padding: $sentence-padding;
+                border-radius: 5px;
+            }
+        }
+        .question{
+            text-align: right;
+        }
+        .answer{
+            text-align: left;
+        }
+    }
+
+    .talk-form{
+        display: inline-block;
+        bottom: 0;
+        width: 700px;
+        padding: 20px 0;
+
+        input{
+            width: 80%;
+        }
     }
 }

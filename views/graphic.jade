@@ -1,0 +1,15 @@
+//
+//   Created by thanatos on 15-8-15.
+//
+extends public/simple-layout
+block content
+    script(data-main='/javascripts/graphic-require', src='/javascripts/lib/require.js')
+    div.panel-virtual
+        form#graphic-form(action='/graphic/show', method='GET')
+            input.input(type='hidden', name='type', value='#{type}')
+            input.input(type='hidden', name='keyword', value='#{keyword}')
+            div.weight-3
+                input.input(type='text', name='depth', value='#{depth}')
+            button.btn.btn-primary(type='submit') 提交
+        div.graph
+            div.force-graph
